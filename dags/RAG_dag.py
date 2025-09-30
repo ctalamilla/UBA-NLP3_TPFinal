@@ -4,9 +4,10 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime
 import requests
 # Importamos las tareas desde plugins/tasks/
-from tasks.s3_utils import ejemplo_conexion_s3, descargar_dataset, descargar_boletines_salta
+from tasks.s3_utils import ejemplo_conexion_s3,  descargar_boletines_salta
 from tasks.procesamiento_utils import listar_pdfs_minio
-
+from tasks.text_task import task_extract_texts
+from tasks.chunk_from_txt_task import task_chunk_txt
 
 # Definimos el DAG
 with DAG(
@@ -14,7 +15,7 @@ with DAG(
     start_date=datetime(2024, 1, 1),
     schedule_interval=None,
     catchup=False,
-    tags=["pipeline", "mlops", "polvo"]
+    tags=["pipeline"]
 ) as dag:
 
     conectar_minio = PythonOperator(
@@ -49,8 +50,30 @@ with DAG(
         },
     )
 
-
+    extract_texts = PythonOperator(
+        task_id="extract_texts",
+        python_callable=task_extract_texts,
+        op_kwargs={
+            "bucket_name": "respaldo2",
+            "prefix_pdfs": "boletines/2025/",
+            "prefix_txt":  "rag/text/2025/",
+            "aws_conn_id": "minio_s3",
+        },
+    )
+    chunk_from_txt = PythonOperator(
+        task_id="chunk_from_txt",
+        python_callable=task_chunk_txt,
+        op_kwargs={
+            "bucket_name": "respaldo2",
+            "prefix_txt":   "rag/text/2025/",
+            "prefix_pdfs":  "boletines/2025/",
+            "prefix_chunks":"rag/chunks/2025/",
+            "aws_conn_id":  "minio_s3",
+            "max_tokens_chunk": 300,
+            "overlap": 80,
+        },
+    )
 
 
     # Definimos el flujo de dependencias
-    conectar_minio >> descargar_boletines_task >> listar_boletines_task
+    conectar_minio >> descargar_boletines_task >> listar_boletines_task >> extract_texts >> chunk_from_txt

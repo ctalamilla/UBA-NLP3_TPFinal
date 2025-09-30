@@ -1,0 +1,35 @@
+[2025-09-30T19:13:22.879+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-09-30T19:13:02.728529+00:00 [queued]>
+[2025-09-30T19:13:22.882+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-09-30T19:13:02.728529+00:00 [queued]>
+[2025-09-30T19:13:22.882+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-09-30T19:13:22.887+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_texts> on 2025-09-30 19:13:02.728529+00:00
+[2025-09-30T19:13:22.890+0000] {standard_task_runner.py:57} INFO - Started process 640 to run task
+[2025-09-30T19:13:22.892+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'extract_texts', 'manual__2025-09-30T19:13:02.728529+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmp5qk1z_4v']
+[2025-09-30T19:13:22.894+0000] {standard_task_runner.py:85} INFO - Job 30: Subtask extract_texts
+[2025-09-30T19:13:22.917+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.extract_texts manual__2025-09-30T19:13:02.728529+00:00 [running]> on host b23249bdd303
+[2025-09-30T19:13:22.949+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='extract_texts' AIRFLOW_CTX_EXECUTION_DATE='2025-09-30T19:13:02.728529+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-30T19:13:02.728529+00:00'
+[2025-09-30T19:13:22.950+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-09-30T19:13:22.951+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-09-30T19:13:22.952+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-09-30T19:13:22.952+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-09-30T19:13:22.952+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-09-30T19:13:23.212+0000] {s3.py:1361} INFO - This function shadows the 'download_file' method of S3 API, but it is not the same. If you want to use the original method from S3 API, please call 'S3Hook.get_conn().download_file()'
+[2025-09-30T19:13:23.213+0000] {s3.py:1367} INFO - Downloading source S3 file from Bucket respaldo2 with path boletines/2025/22032_2025-09-16.pdf
+[2025-09-30T19:13:23.213+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-09-30T19:13:23.214+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-09-30T19:13:23.260+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/text_task.py", line 31, in task_extract_texts
+    docs: List[Document] = pdf_to_documents(local_pdf)
+  File "/opt/airflow/plugins/tasks/loader_pdfs.py", line 166, in pdf_to_documents
+    raise FileNotFoundError(f"No existe el archivo: {pdf_path}")
+FileNotFoundError: No existe el archivo: /tmp/tmph3heqv5a/22032_2025-09-16.pdf
+[2025-09-30T19:13:23.266+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG, task_id=extract_texts, execution_date=20250930T191302, start_date=20250930T191322, end_date=20250930T191323
+[2025-09-30T19:13:23.272+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 30 for task extract_texts (No existe el archivo: /tmp/tmph3heqv5a/22032_2025-09-16.pdf; 640)
+[2025-09-30T19:13:23.291+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-09-30T19:13:23.301+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

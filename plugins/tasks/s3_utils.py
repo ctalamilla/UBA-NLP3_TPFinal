@@ -36,28 +36,6 @@ def ejemplo_conexion_s3():
     )
     print(f"📄 Archivo 'prueba.txt' subido a bucket '{bucket_name}'.")
 
-def descargar_dataset(**kwargs):
-    url = 'https://docs.google.com/uc?export=download&id=1gT8k90Iisd-sZVXWtS6Exl1ZFwwTd_WM'
-    nombre_archivo_local = 'dataset.csv'
-    bucket_name = 'respaldo2'
-    s3_key = 'dataset.csv'
-    hook = S3Hook(aws_conn_id='minio_s3')
-
-    with tempfile.TemporaryDirectory() as tmpdirname:
-        local_path = os.path.join(tmpdirname, nombre_archivo_local)
-        response = requests.get(url)
-        response.raise_for_status()
-        with open(local_path, 'wb') as f:
-            f.write(response.content)
-
-        hook.load_file(
-            filename=local_path,
-            key=s3_key,
-            bucket_name=bucket_name,
-            replace=True
-        )
-        print(f"✅ Dataset subido a MinIO en {bucket_name}/{s3_key}")
-        
 
 def descargar_boletines_salta(**kwargs):
     """
