@@ -1,0 +1,81 @@
+[2025-10-01T13:48:00.178+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T13:48:00.182+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T13:48:00.183+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-10-01T13:48:00.188+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_texts> on 2025-10-01 13:33:42.656094+00:00
+[2025-10-01T13:48:00.193+0000] {standard_task_runner.py:57} INFO - Started process 2409 to run task
+[2025-10-01T13:48:00.195+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'extract_texts', 'manual__2025-10-01T13:33:42.656094+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpx1vuh31c']
+[2025-10-01T13:48:00.197+0000] {standard_task_runner.py:85} INFO - Job 54: Subtask extract_texts
+[2025-10-01T13:48:00.219+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.extract_texts manual__2025-10-01T13:33:42.656094+00:00 [running]> on host b23249bdd303
+[2025-10-01T13:48:00.251+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='extract_texts' AIRFLOW_CTX_EXECUTION_DATE='2025-10-01T13:33:42.656094+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-01T13:33:42.656094+00:00'
+[2025-10-01T13:48:00.252+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-01T13:48:00.253+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:00.253+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-01T13:48:00.253+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:00.254+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-01T13:48:00.441+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:00.442+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:04.981+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:04.981+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:05.027+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22032_2025-09-16.txt  (páginas=70, chars=183179)
+[2025-10-01T13:48:05.028+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:05.028+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:09.557+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:09.558+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:09.630+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22033_2025-09-17.txt  (páginas=74, chars=183414)
+[2025-10-01T13:48:09.631+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:09.631+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:14.784+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:14.784+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:14.826+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22034_2025-09-18.txt  (páginas=78, chars=208221)
+[2025-10-01T13:48:14.827+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:14.827+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:19.261+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:19.261+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:19.487+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22035_2025-09-19.txt  (páginas=74, chars=194210)
+[2025-10-01T13:48:19.488+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:19.488+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:23.902+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:23.903+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:24.126+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22036_2025-09-22.txt  (páginas=74, chars=189235)
+[2025-10-01T13:48:24.127+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:24.127+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:28.428+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:28.428+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:28.469+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22037_2025-09-23.txt  (páginas=73, chars=185973)
+[2025-10-01T13:48:28.469+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:28.470+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:32.049+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:32.050+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:32.089+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22038_2025-09-24.txt  (páginas=59, chars=143062)
+[2025-10-01T13:48:32.089+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:32.089+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:36.942+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:36.943+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:36.986+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22039_2025-09-25.txt  (páginas=82, chars=202948)
+[2025-10-01T13:48:36.987+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:36.987+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:41.370+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:41.371+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:41.410+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22040_2025-09-26.txt  (páginas=69, chars=173078)
+[2025-10-01T13:48:41.411+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:41.411+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:46.977+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:46.979+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:47.019+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22041_2025-09-29.txt  (páginas=83, chars=228607)
+[2025-10-01T13:48:47.020+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:47.020+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:51.338+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:51.339+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:51.379+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22042_2025-09-30.txt  (páginas=70, chars=180284)
+[2025-10-01T13:48:51.380+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:51.380+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:57.201+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:48:57.202+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:48:57.248+0000] {logging_mixin.py:151} INFO - ✅ TXT subido: s3://respaldo2/rag/text/2025/22043_2025-10-01.txt  (páginas=89, chars=241395)
+[2025-10-01T13:48:57.248+0000] {logging_mixin.py:151} INFO - ✅ Total TXT generados: 12 en s3://respaldo2/rag/text/2025/
+[2025-10-01T13:48:57.248+0000] {python.py:194} INFO - Done. Returned value was: {'processed': 12, 'bucket': 'respaldo2', 'prefix_pdfs': 'boletines/2025/', 'prefix_txt': 'rag/text/2025/', 'generated_at': '2025-10-01T13:48:57.248535Z', 'items': [{'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text/2025/22032_2025-09-16.txt', 'pages': 70, 'chars': 183179}, {'pdf_key': 'boletines/2025/22033_2025-09-17.pdf', 'txt_key': 'rag/text/2025/22033_2025-09-17.txt', 'pages': 74, 'chars': 183414}, {'pdf_key': 'boletines/2025/22034_2025-09-18.pdf', 'txt_key': 'rag/text/2025/22034_2025-09-18.txt', 'pages': 78, 'chars': 208221}, {'pdf_key': 'boletines/2025/22035_2025-09-19.pdf', 'txt_key': 'rag/text/2025/22035_2025-09-19.txt', 'pages': 74, 'chars': 194210}, {'pdf_key': 'boletines/2025/22036_2025-09-22.pdf', 'txt_key': 'rag/text/2025/22036_2025-09-22.txt', 'pages': 74, 'chars': 189235}, {'pdf_key': 'boletines/2025/22037_2025-09-23.pdf', 'txt_key': 'rag/text/2025/22037_2025-09-23.txt', 'pages': 73, 'chars': 185973}, {'pdf_key': 'boletines/2025/22038_2025-09-24.pdf', 'txt_key': 'rag/text/2025/22038_2025-09-24.txt', 'pages': 59, 'chars': 143062}, {'pdf_key': 'boletines/2025/22039_2025-09-25.pdf', 'txt_key': 'rag/text/2025/22039_2025-09-25.txt', 'pages': 82, 'chars': 202948}, {'pdf_key': 'boletines/2025/22040_2025-09-26.pdf', 'txt_key': 'rag/text/2025/22040_2025-09-26.txt', 'pages': 69, 'chars': 173078}, {'pdf_key': 'boletines/2025/22041_2025-09-29.pdf', 'txt_key': 'rag/text/2025/22041_2025-09-29.txt', 'pages': 83, 'chars': 228607}, {'pdf_key': 'boletines/2025/22042_2025-09-30.pdf', 'txt_key': 'rag/text/2025/22042_2025-09-30.txt', 'pages': 70, 'chars': 180284}, {'pdf_key': 'boletines/2025/22043_2025-10-01.pdf', 'txt_key': 'rag/text/2025/22043_2025-10-01.txt', 'pages': 89, 'chars': 241395}]}
+[2025-10-01T13:48:57.262+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=extract_texts, execution_date=20251001T133342, start_date=20251001T134800, end_date=20251001T134857
+[2025-10-01T13:48:57.338+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-01T13:48:57.350+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

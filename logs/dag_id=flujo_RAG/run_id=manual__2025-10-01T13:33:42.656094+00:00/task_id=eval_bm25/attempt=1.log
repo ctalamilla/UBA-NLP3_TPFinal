@@ -1,0 +1,51 @@
+[2025-10-01T13:35:10.009+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T13:35:10.014+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T13:35:10.014+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-01T13:35:10.020+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): eval_bm25> on 2025-10-01 13:33:42.656094+00:00
+[2025-10-01T13:35:10.025+0000] {standard_task_runner.py:57} INFO - Started process 1813 to run task
+[2025-10-01T13:35:10.027+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'eval_bm25', 'manual__2025-10-01T13:33:42.656094+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpagma_h79']
+[2025-10-01T13:35:10.029+0000] {standard_task_runner.py:85} INFO - Job 50: Subtask eval_bm25
+[2025-10-01T13:35:10.055+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-01T13:33:42.656094+00:00 [running]> on host b23249bdd303
+[2025-10-01T13:35:10.090+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='eval_bm25' AIRFLOW_CTX_EXECUTION_DATE='2025-10-01T13:33:42.656094+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-01T13:33:42.656094+00:00'
+[2025-10-01T13:35:10.092+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-01T13:35:10.092+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:35:10.093+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-01T13:35:10.093+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:35:10.093+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-01T13:35:10.276+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T13:35:10.276+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T13:35:10.311+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/eval_bm25_task.py", line 51, in task_eval_bm25
+    local_qrels = download_to_tmp(bucket=bucket_name, key=qrels_key, aws_conn_id=aws_conn_id)
+  File "/opt/airflow/plugins/tasks/s3_utilities.py", line 92, in download_to_tmp
+    return download_to_dir(bucket=bucket, key=key, local_dir=tmpdir, aws_conn_id=aws_conn_id)
+  File "/opt/airflow/plugins/tasks/s3_utilities.py", line 74, in download_to_dir
+    client.download_file(bucket, key, dest)
+  File "/home/airflow/.local/lib/python3.8/site-packages/boto3/s3/inject.py", line 190, in download_file
+    return transfer.download_file(
+  File "/home/airflow/.local/lib/python3.8/site-packages/boto3/s3/transfer.py", line 326, in download_file
+    future.result()
+  File "/home/airflow/.local/lib/python3.8/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/airflow/.local/lib/python3.8/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/s3transfer/tasks.py", line 269, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/s3transfer/download.py", line 354, in _submit
+    response = client.head_object(
+  File "/home/airflow/.local/lib/python3.8/site-packages/botocore/client.py", line 535, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/botocore/client.py", line 980, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[2025-10-01T13:35:10.320+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG, task_id=eval_bm25, execution_date=20251001T133342, start_date=20251001T133510, end_date=20251001T133510
+[2025-10-01T13:35:10.325+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 50 for task eval_bm25 (An error occurred (404) when calling the HeadObject operation: Not Found; 1813)
+[2025-10-01T13:35:10.375+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-01T13:35:10.383+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

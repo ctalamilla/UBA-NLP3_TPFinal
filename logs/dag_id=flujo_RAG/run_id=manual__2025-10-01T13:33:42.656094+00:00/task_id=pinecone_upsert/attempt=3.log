@@ -1,0 +1,90 @@
+[2025-10-01T15:24:36.301+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T15:24:36.306+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T15:24:36.306+0000] {taskinstance.py:1359} INFO - Starting attempt 3 of 3
+[2025-10-01T15:24:36.311+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): pinecone_upsert> on 2025-10-01 13:33:42.656094+00:00
+[2025-10-01T15:24:36.317+0000] {standard_task_runner.py:57} INFO - Started process 188 to run task
+[2025-10-01T15:24:36.320+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'pinecone_upsert', 'manual__2025-10-01T13:33:42.656094+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpozxgdeka']
+[2025-10-01T15:24:36.322+0000] {standard_task_runner.py:85} INFO - Job 70: Subtask pinecone_upsert
+[2025-10-01T15:24:36.349+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [running]> on host 9295f2a9aef9
+[2025-10-01T15:24:36.393+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='pinecone_upsert' AIRFLOW_CTX_EXECUTION_DATE='2025-10-01T13:33:42.656094+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-01T13:33:42.656094+00:00'
+[2025-10-01T15:24:36.395+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-01T15:24:36.395+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:36.395+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-01T15:24:36.396+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:36.396+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-01T15:24:36.679+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:36.679+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:36.739+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:36.739+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:36.784+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:36.785+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.038+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.038+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.087+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.087+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.136+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.136+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.183+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.183+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.234+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.234+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.282+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.282+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.497+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.497+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.537+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.537+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.576+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:24:37.577+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:24:37.620+0000] {SentenceTransformer.py:208} INFO - Use pytorch device_name: cpu
+[2025-10-01T15:24:37.620+0000] {SentenceTransformer.py:216} INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-10-01T15:25:20.925+0000] {discover_namespace_packages.py:12} INFO - Discovering subpackages in _NamespacePath(['/home/***/.local/lib/python3.8/site-packages/pinecone_plugins'])
+[2025-10-01T15:25:20.926+0000] {discover_plugins.py:9} INFO - Looking for plugins in pinecone_plugins.inference
+[2025-10-01T15:25:20.934+0000] {installation.py:10} INFO - Installing plugin inference into Pinecone
+[2025-10-01T15:25:21.406+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/pinecone_upsert_task.py", line 15, in task_pinecone_upsert
+    out = upsert_vectors_from_ndjson(
+  File "/opt/airflow/plugins/tasks/vector_pinecone.py", line 124, in upsert_vectors_from_ndjson
+    ensure_index(index_name=index_name, dim=dim, metric="cosine")
+  File "/opt/airflow/plugins/tasks/vector_pinecone.py", line 59, in ensure_index
+    pc.create_index(name=index_name, dimension=dim, metric=metric, spec=spec)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/control/pinecone.py", line 384, in create_index
+    api_instance.create_index(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 761, in __call__
+    return self.callable(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/control/api/manage_indexes_api.py", line 273, in __create_index
+    return self.call_with_http_info(**kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 819, in call_with_http_info
+    return self.api_client.call_api(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 380, in call_api
+    return self.__call_api(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 187, in __call_api
+    raise e
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 175, in __call_api
+    response_data = self.request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/api_client.py", line 460, in request
+    return self.rest_client.POST(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/rest.py", line 345, in POST
+    return self.request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pinecone/core/openapi/shared/rest.py", line 268, in request
+    raise UnauthorizedException(http_resp=r)
+pinecone.core.openapi.shared.exceptions.UnauthorizedException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2024-07', 'x-cloud-trace-context': '9ded2b516fd5a9419dab51984dd54736', 'date': 'Wed, 01 Oct 2025 15:25:21 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+
+[2025-10-01T15:25:21.412+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG, task_id=pinecone_upsert, execution_date=20251001T133342, start_date=20251001T152436, end_date=20251001T152521
+[2025-10-01T15:25:21.420+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 70 for task pinecone_upsert ((401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'x-pinecone-api-version': '2024-07', 'x-cloud-trace-context': '9ded2b516fd5a9419dab51984dd54736', 'date': 'Wed, 01 Oct 2025 15:25:21 GMT', 'content-type': 'text/html', 'server': 'Google Frontend', 'Content-Length': '15', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: Invalid API Key
+; 188)
+[2025-10-01T15:25:21.474+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-01T15:25:21.484+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

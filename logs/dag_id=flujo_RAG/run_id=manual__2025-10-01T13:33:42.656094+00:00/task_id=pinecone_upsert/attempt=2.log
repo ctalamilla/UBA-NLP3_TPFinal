@@ -1,0 +1,61 @@
+[2025-10-01T15:15:51.030+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T15:15:51.034+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [queued]>
+[2025-10-01T15:15:51.034+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-10-01T15:15:51.039+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): pinecone_upsert> on 2025-10-01 13:33:42.656094+00:00
+[2025-10-01T15:15:51.046+0000] {standard_task_runner.py:57} INFO - Started process 646 to run task
+[2025-10-01T15:15:51.049+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'pinecone_upsert', 'manual__2025-10-01T13:33:42.656094+00:00', '--job-id', '68', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpm00du37y']
+[2025-10-01T15:15:51.052+0000] {standard_task_runner.py:85} INFO - Job 68: Subtask pinecone_upsert
+[2025-10-01T15:15:51.078+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.pinecone_upsert manual__2025-10-01T13:33:42.656094+00:00 [running]> on host 49b40b826a15
+[2025-10-01T15:15:51.115+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='pinecone_upsert' AIRFLOW_CTX_EXECUTION_DATE='2025-10-01T13:33:42.656094+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-01T13:33:42.656094+00:00'
+[2025-10-01T15:15:51.117+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-01T15:15:51.118+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.119+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-01T15:15:51.119+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.120+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-01T15:15:51.374+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.374+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.435+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.436+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.490+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.490+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.755+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.756+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.799+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.799+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.847+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.847+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.897+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.898+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:51.954+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:51.954+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:52.004+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:52.005+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:52.216+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:52.216+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:52.261+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:52.261+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:52.310+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T15:15:52.311+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T15:15:52.364+0000] {SentenceTransformer.py:208} INFO - Use pytorch device_name: cpu
+[2025-10-01T15:15:52.364+0000] {SentenceTransformer.py:216} INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-10-01T15:16:37.604+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/pinecone_upsert_task.py", line 15, in task_pinecone_upsert
+    out = upsert_vectors_from_ndjson(
+  File "/opt/airflow/plugins/tasks/vector_pinecone.py", line 124, in upsert_vectors_from_ndjson
+    ensure_index(index_name=index_name, dim=dim, metric="cosine")
+  File "/opt/airflow/plugins/tasks/vector_pinecone.py", line 54, in ensure_index
+    pc = _pc_client()
+  File "/opt/airflow/plugins/tasks/vector_pinecone.py", line 43, in _pc_client
+    raise RuntimeError("PINECONE_API_KEY no está definido en el entorno.")
+RuntimeError: PINECONE_API_KEY no está definido en el entorno.
+[2025-10-01T15:16:37.610+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG, task_id=pinecone_upsert, execution_date=20251001T133342, start_date=20251001T151551, end_date=20251001T151637
+[2025-10-01T15:16:37.616+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 68 for task pinecone_upsert (PINECONE_API_KEY no está definido en el entorno.; 646)
+[2025-10-01T15:16:37.704+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-01T15:16:37.713+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
