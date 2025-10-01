@@ -18,6 +18,10 @@ from tasks.pinecone_upsert_task import task_pinecone_upsert
 from tasks.pinecone_query_task import task_pinecone_query
 # dags/RAG_dag.py
 from tasks.fusion_rrf_task import task_fusion_query
+    # dags/RAG_dag.py
+from tasks.eval_fusion_task import task_eval_fusion
+
+
 
 # Definimos el DAG
 with DAG(
@@ -188,6 +192,23 @@ with DAG(
             "out_prefix":     "rag/fusion/2025/",
         },
     )
+    
+
+
+    eval_fusion = PythonOperator(
+        task_id="eval_fusion",
+        python_callable=task_eval_fusion,
+        op_kwargs={
+            "bucket_name":   "respaldo2",
+            "aws_conn_id":   "minio_s3",
+            "fusion_prefix": "rag/fusion/2025/",
+            "qrels_key":     "rag/qrels/2025/qrels.csv",
+            "metrics_prefix":"rag/metrics/2025/",
+            "query":         "{{ params.eval_query }}",   # opcional; si no, toma el último fusion_*.json
+            "ks":            [1, 3, 5, 10],
+        },
+    )
+
 
 
     # dump_docids = PythonOperator(
@@ -213,4 +234,6 @@ with DAG(
     
     # Fusión cuando ambos están listos:
     [query_bm25, pinecone_query] >> fusion_query
+    # ahora añadí:
+    fusion_query >> eval_fusion
 

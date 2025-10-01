@@ -1,60 +1,17 @@
-##################      io_utils.py    ###################
+# plugins/tasks/qrels_utils.py
 from __future__ import annotations
-import json, pandas as pd
+
 from pathlib import Path
-from typing import Dict, List, Set
-#  importá Document desde tu módulo
-from tasks.documents import Document
-from typing import Dict, Union  # <-- agregá Union
-
+from typing import Dict, Union
 import csv, json, io
-# io_utils.py
-
-def load_docs_jsonl(path: Path) -> List[Document]:
-    docs = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            o = json.loads(line)
-
-            # ✅ Priorizar el chunk completo; si no existe, usar resumen
-            text = (o.get("text") or o.get("resumen") or "").strip()
-            if not text:
-                continue
-
-            page = o.get("page", None)
-            try:
-                page = int(page) if page is not None and str(page).strip().lower() != "none" else None
-            except Exception:
-                page = None
-
-            doc = Document(
-                id=str(o.get("doc_id", o.get("id", ""))),
-                text=text,
-                source=str(o.get("source", o.get("tipo", ""))),
-                page=page
-            )
-            docs.append(doc)
-    return docs
 
 
-
-def load_qrels_csv(path: Path) -> Dict[str, Set[str]]:
-    df = pd.read_csv(path)
-    df = df[df["label"] > 0]
-    out: Dict[str, Set[str]] = {}
-    for q, sub in df.groupby("query"):
-        out[str(q)] = set(map(str, sub["doc_id"].tolist()))
-    return out
-
-def load_qrels(path: str | Path) -> Dict[str, Dict[str, int]]:
+def load_qrels(path: Union[str, Path]) -> Dict[str, Dict[str, int]]:
     """
-    Carga qrels en diferentes formatos y devuelve:
-      { "<query>": { "<doc_id>": <rel_int>, ... }, ... }
+    Devuelve: {"<query>": {"<doc_id>": rel_int, ...}, ...}
 
     Formatos soportados:
-    - CSV con headers: query,doc_id,rel   (o variantes: qid/q, doc/docno, relevance/label)
+    - CSV con headers: query,doc_id,rel (o variantes: qid/q, doc/docno, relevance/label)
     - JSON dict     : {"query": {"doc_id": rel, ...}, ...}
     - JSONL por fila: {"query": "...", "doc_id": "...", "rel": 1}
     - TREC qrels    : "<qid> 0 <docno> <rel>"

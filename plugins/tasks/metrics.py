@@ -18,3 +18,21 @@ def mrr(pred_ids: List[str], rel_ids: Set[str]) -> float:
     for i,d in enumerate(pred_ids,1):
         if d in rel_ids: return 1.0/i
     return 0.0
+
+# ✅ Nueva, consistente con tu API:
+def average_precision_at_k(pred_ids: List[str], rel_ids: Set[str], k: int) -> float:
+    """
+    AP@k: promedio de las precisiones en cada posición con relevante, hasta k.
+    Normalizado por min(#relevantes, k).
+    """
+    if k <= 0:
+        return 0.0
+    top = pred_ids[:k]
+    hits = 0
+    sum_prec = 0.0
+    for i, d in enumerate(top, 1):
+        if d in rel_ids:
+            hits += 1
+            sum_prec += hits / float(i)
+    denom = min(len(rel_ids), k)
+    return 0.0 if denom == 0 else sum_prec / float(denom)

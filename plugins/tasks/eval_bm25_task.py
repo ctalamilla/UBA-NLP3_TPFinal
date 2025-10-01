@@ -1,5 +1,5 @@
 # plugins/tasks/eval_bm25_task.py
-from __future__ import annotations
+#from __future__ import annotations
 
 import os
 import csv

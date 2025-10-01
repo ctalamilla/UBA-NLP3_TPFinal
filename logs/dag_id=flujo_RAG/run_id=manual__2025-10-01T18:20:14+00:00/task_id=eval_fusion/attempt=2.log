@@ -1,0 +1,38 @@
+[2025-10-01T18:46:14.257+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.eval_fusion manual__2025-10-01T18:20:14+00:00 [queued]>
+[2025-10-01T18:46:14.262+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.eval_fusion manual__2025-10-01T18:20:14+00:00 [queued]>
+[2025-10-01T18:46:14.262+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-10-01T18:46:14.266+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): eval_fusion> on 2025-10-01 18:20:14+00:00
+[2025-10-01T18:46:14.271+0000] {standard_task_runner.py:57} INFO - Started process 108 to run task
+[2025-10-01T18:46:14.274+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'eval_fusion', 'manual__2025-10-01T18:20:14+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpnzza1jkf']
+[2025-10-01T18:46:14.276+0000] {standard_task_runner.py:85} INFO - Job 94: Subtask eval_fusion
+[2025-10-01T18:46:14.297+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.eval_fusion manual__2025-10-01T18:20:14+00:00 [running]> on host cebfb690f74d
+[2025-10-01T18:46:14.329+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='eval_fusion' AIRFLOW_CTX_EXECUTION_DATE='2025-10-01T18:20:14+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-01T18:20:14+00:00'
+[2025-10-01T18:46:14.330+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-01T18:46:14.330+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T18:46:14.331+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-01T18:46:14.331+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T18:46:14.331+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-01T18:46:14.431+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T18:46:14.431+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T18:46:14.571+0000] {logging_mixin.py:151} INFO - 📝 Evaluando fusión: s3://respaldo2/rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251001_182223.json
+[2025-10-01T18:46:14.571+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T18:46:14.571+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T18:46:14.613+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-01T18:46:14.613+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-01T18:46:14.819+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/eval_fusion_task.py", line 107, in task_eval_fusion
+    ap_at = {k: METR.average_precision_at_k(y_true, k) for k in ks}
+  File "/opt/airflow/plugins/tasks/eval_fusion_task.py", line 107, in <dictcomp>
+    ap_at = {k: METR.average_precision_at_k(y_true, k) for k in ks}
+AttributeError: module 'tasks.metrics' has no attribute 'average_precision_at_k'
+[2025-10-01T18:46:14.823+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG, task_id=eval_fusion, execution_date=20251001T182014, start_date=20251001T184614, end_date=20251001T184614
+[2025-10-01T18:46:14.828+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 94 for task eval_fusion (module 'tasks.metrics' has no attribute 'average_precision_at_k'; 108)
+[2025-10-01T18:46:14.884+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-01T18:46:14.892+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
