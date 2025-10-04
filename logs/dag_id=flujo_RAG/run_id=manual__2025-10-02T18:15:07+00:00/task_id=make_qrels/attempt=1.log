@@ -1,0 +1,51 @@
+[2025-10-02T18:16:47.735+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.make_qrels manual__2025-10-02T18:15:07+00:00 [queued]>
+[2025-10-02T18:16:47.740+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.make_qrels manual__2025-10-02T18:15:07+00:00 [queued]>
+[2025-10-02T18:16:47.740+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-02T18:16:47.745+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): make_qrels> on 2025-10-02 18:15:07+00:00
+[2025-10-02T18:16:47.749+0000] {standard_task_runner.py:57} INFO - Started process 62668 to run task
+[2025-10-02T18:16:47.752+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'make_qrels', 'manual__2025-10-02T18:15:07+00:00', '--job-id', '152', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpygol4_a4']
+[2025-10-02T18:16:47.754+0000] {standard_task_runner.py:85} INFO - Job 152: Subtask make_qrels
+[2025-10-02T18:16:47.778+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.make_qrels manual__2025-10-02T18:15:07+00:00 [running]> on host cebfb690f74d
+[2025-10-02T18:16:47.813+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='make_qrels' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T18:15:07+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T18:15:07+00:00'
+[2025-10-02T18:16:47.814+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-02T18:16:47.815+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:47.815+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-02T18:16:47.815+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:47.815+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-02T18:16:48.139+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.140+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.186+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.186+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.233+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.233+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.278+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.278+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.332+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.332+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.487+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.487+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.529+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.529+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.573+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.573+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.618+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.618+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.760+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.760+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.801+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.802+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.843+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.843+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:48.885+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:48.886+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:49.031+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:49.031+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:49.074+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-02T18:16:49.075+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-02T18:16:49.112+0000] {logging_mixin.py:151} INFO - ✅ qrels generado en s3://respaldo2/rag/qrels/2025/qrels.csv (pos=10, neg=7)
+[2025-10-02T18:16:49.113+0000] {python.py:194} INFO - Done. Returned value was: {'qrels_key': 'rag/qrels/2025/qrels.csv', 'positives': 10, 'rows': 17}
+[2025-10-02T18:16:49.124+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=make_qrels, execution_date=20251002T181507, start_date=20251002T181647, end_date=20251002T181649
+[2025-10-02T18:16:49.160+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-02T18:16:49.171+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+boto3
+numpy
+rank-bm25
+sentence-transformers
+openai>=1.42.0
+pinecone>=4.0.0
+tiktoken
+pydantic>=2,<3

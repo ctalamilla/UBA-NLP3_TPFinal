@@ -20,8 +20,9 @@ from tasks.pinecone_query_task import task_pinecone_query
 from tasks.fusion_rrf_task import task_fusion_query
     # dags/RAG_dag.py
 from tasks.eval_fusion_task import task_eval_fusion
-
-
+    # dags/RAG_dag.py (fragmento)
+from tasks.classify_chunks_agent_task import task_classify_chunks_agent
+from tasks.guardrail_task import task_guardrail_chunks
 
 # Definimos el DAG
 with DAG(
@@ -90,13 +91,39 @@ with DAG(
             "overlap": 80,
         },
     )
+    
+
+
+    classify_chunks_agent = PythonOperator(
+        task_id="classify_chunks_agent",
+        python_callable=task_classify_chunks_agent,
+        op_kwargs={
+            "bucket_name": "respaldo2",
+            "src_prefix": "rag/chunks/2025/",
+            "dst_prefix": "rag/chunks_labeled/2025/",
+            "aws_conn_id": "minio_s3",
+        },
+    )
+    
+
+
+    guardrail_chunks = PythonOperator(
+        task_id="guardrail_chunks",
+        python_callable=task_guardrail_chunks,
+        op_kwargs={
+            "bucket_name": "respaldo2",
+            "in_prefix":  "rag/chunks_labeled/2025/",
+            "out_prefix": "rag/chunks_curated/2025/",
+            "aws_conn_id": "minio_s3",
+        },
+    )
 
     build_bm25 = PythonOperator(
         task_id="build_bm25",
         python_callable=task_build_bm25_from_ndjson,
         op_kwargs={
             "bucket_name": "respaldo2",
-            "prefix_chunks": "rag/chunks/2025/",
+            "prefix_chunks": "rag/chunks_curated/2025/",
             "prefix_models": "rag/models/2025/",
             "aws_conn_id": "minio_s3",
         },
@@ -127,7 +154,7 @@ with DAG(
             "query":       "contratación pública vial",   # usa la misma que en query_bm25_demo
             "top_k_pos":   10,
             "add_negatives": True,
-            "negatives_from_chunks_prefix": "rag/chunks/2025/",
+            "negatives_from_chunks_prefix": "rag/chunks_labeled/2025/",
             "negatives_count": 30,
         },
     )
@@ -151,7 +178,7 @@ with DAG(
         python_callable=task_pinecone_upsert,
         op_kwargs={
             "bucket_name":  "respaldo2",
-            "prefix_chunks":"rag/chunks/2025/",
+            "prefix_chunks":"rag/chunks_curated/2025/",
             "aws_conn_id":  "minio_s3",
             "index_name":   "boletines-2025",
             "namespace":    "2025",
@@ -223,17 +250,27 @@ with DAG(
     # )
 
 
+# después de chunking
+chunk_from_txt >> classify_chunks_agent >> guardrail_chunks
+guardrail_chunks >> build_bm25
+guardrail_chunks >> pinecone_upsert
+
+# resto igual + fix de qrels
+conectar_minio >> descargar_boletines_task >> listar_boletines_task >> extract_texts >> chunk_from_txt
+build_bm25 >> query_bm25 >> make_qrels >> eval_bm25
+pinecone_upsert >> pinecone_query
+[query_bm25, pinecone_query] >> fusion_query
+[fusion_query, make_qrels] >> eval_fusion
 
 
 
-
-    # Definimos el flujo de dependencias
-    conectar_minio >> descargar_boletines_task >> listar_boletines_task >> extract_texts >> chunk_from_txt >> build_bm25 >> query_bm25 >> make_qrels >> eval_bm25
+    # # Definimos el flujo de dependencias
+    # conectar_minio >> descargar_boletines_task >> listar_boletines_task >> extract_texts >> chunk_from_txt >> build_bm25 >> query_bm25 >> make_qrels >> eval_bm25
     
-    chunk_from_txt >> pinecone_upsert >> pinecone_query
+    # chunk_from_txt >> pinecone_upsert >> pinecone_query
     
-    # Fusión cuando ambos están listos:
-    [query_bm25, pinecone_query] >> fusion_query
-    # ahora añadí:
-    fusion_query >> eval_fusion
+    # # Fusión cuando ambos están listos:
+    # [query_bm25, pinecone_query] >> fusion_query
+    # # ahora añadí:
+    # fusion_query >> eval_fusion
 

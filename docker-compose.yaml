@@ -68,6 +68,9 @@ x-airflow-common:
     PINECONE_API_KEY: ${PINECONE_API_KEY}
     PINECONE_REGION: ${PINECONE_REGION}            # para cliente nuevo (ServerlessSpec)
     PINECONE_ENVIRONMENT: ${PINECONE_ENVIRONMENT}
+    OPENAI_API_KEY: ${OPENAI_API_KEY}
+    OPENAI_MODEL: ${OPENAI_MODEL}
+    OPENAI_GUARDRAIL_MODEL: gpt-4
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -338,6 +341,97 @@ services:
       - ./mlflow:/mlflow
     networks:
       - default
+# RAG
+  rag_api:
+    build:
+      context: .
+      dockerfile: fastapi_app/Dockerfile
+    depends_on:
+      - minio
+    ports:
+      - "8000:8000"
+    volumes:
+    # monta tu app
+    - ./fastapi_app:/code/fastapi_app
+    # monta tus módulos de la notebook (paquete 'tasks')
+    - ./plugins/tasks:/code/tasks
+    environment:
+      # ---- S3/MinIO (coincide con lo que ya usa Airflow) ----
+      S3_ENDPOINT_URL: http://minio:9000
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minio_admin}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minio_admin}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+      S3_BUCKET: ${S3_BUCKET:-respaldo2}
+      PYTHONPATH: /code
+
+      # ---- Rutas usadas por el pipeline ----
+      BM25_MODEL_KEY: ${BM25_MODEL_KEY:-rag/models/2025/bm25.pkl}
+      CHUNKS_PREFIX: ${CHUNKS_PREFIX:-rag/chunks_labeled/2025/}
+
+      # ---- Pinecone ----
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_INDEX: ${PINECONE_INDEX:-boletines-2025}
+      PINECONE_NAMESPACE: ${PINECONE_NAMESPACE:-2025}
+      # Para serverless (cliente nuevo): una de estas dos variables, según tu cuenta
+      PINECONE_REGION: ${PINECONE_REGION:-us-east-1}
+      PINECONE_ENVIRONMENT: ${PINECONE_ENVIRONMENT:-us-east1-gcp}
+
+      # ---- OpenAI (agentes: guardrail, summary, respuesta, salida) ----
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_GUARD_MODEL: ${OPENAI_GUARD_MODEL:-gpt-4o-mini}
+      OPENAI_SUMMARY_MODEL: ${OPENAI_SUMMARY_MODEL:-gpt-4o-mini}
+      OPENAI_ANSWER_MODEL: ${OPENAI_ANSWER_MODEL:-gpt-4o-mini}
+      OPENAI_OUT_GUARD_MODEL: ${OPENAI_OUT_GUARD_MODEL:-gpt-4o-mini}
+
+      # ---- (Opcional) Rerank cross-encoder ----
+      # RERANK_MODEL: cross-encoder/ms-marco-MiniLM-L-12-v2
+
+    # Opcional: modo desarrollo con hot-reload (monta tu código local)
+    # volumes:
+    #   - ./fastapi_app:/code/fastapi_app:ro
+
+
+  rag_notebook:
+    build:
+      context: ./rag_notebook
+      dockerfile: Dockerfile
+    container_name: rag_notebook
+    ports:
+      - "8888:8888"           # Jupyter
+    environment:
+      # --- MinIO/S3 ---
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minio_admin}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minio_admin}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-http://minio:9000}
+
+      # --- Pinecone ---
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_REGION: ${PINECONE_REGION:-us-east-1}
+
+      # --- OpenAI ---
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+
+      # --- confort ---
+      JUPYTER_TOKEN: ""       # sin token (SOLO en dev local)
+      PYTHONPATH: /home/jovyan/work:/home/jovyan/work/tasks:/home/jovyan/work/fastapi_app
+
+      # --- defaults de tu flujo ---
+      S3_BUCKET: respaldo2
+      BM25_MODEL_KEY: rag/models/2025/bm25.pkl
+      CHUNKS_PREFIX: rag/chunks_labeled/2025/
+      PINECONE_INDEX: boletines-2025
+      PINECONE_NAMESPACE: "2025"
+      EMB_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    volumes:
+      # Código de la API (para reusar helpers como vector_pinecone_api/s3_boto)
+      - ./fastapi_app:/home/jovyan/work/fastapi_app:ro
+      # Tus utilidades/índices del pipeline (BM25Index, fusion, etc.)
+      - ./plugins/tasks:/home/jovyan/work/tasks:ro
+      # Carpeta de notebooks (editables)
+      - ./notebooks:/home/jovyan/work/notebooks
+    depends_on:
+      - minio
 
 
 volumes:

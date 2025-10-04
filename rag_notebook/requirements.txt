@@ -1,0 +1,13 @@
+boto3
+pinecone>=4.0.0
+sentence-transformers
+rank-bm25
+openai>=1.42.0
+pdfplumber
+fastapi
+uvicorn
+httpx
+rich
+pydantic>=2,<3
+
+
