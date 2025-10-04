@@ -433,6 +433,27 @@ services:
     depends_on:
       - minio
 
+  streamlit:
+    build:
+      context: .
+      dockerfile: frontend_streamlit/Dockerfile
+    container_name: streamlit_app
+    environment:
+      # Streamlit hablará con la API por DNS del compose
+      - RAG_API_URL=http://rag_api:8000
+      # Opcionales para autocompletar en la UI (no imprescindibles)
+      - PINECONE_INDEX=${PINECONE_INDEX:-boletines-2025}
+      - PINECONE_NAMESPACE=${PINECONE_NAMESPACE:-2025}
+      - EMB_MODEL=${EMB_MODEL:-sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2}
+    ports:
+      - "8501:8501"
+    depends_on:
+      - rag_api
+    restart: unless-stopped
+    # Monta la carpeta para hot-reload en dev (opcional)
+    volumes:
+      - ./frontend_streamlit:/app
+
 
 volumes:
   postgres-db-volume:
