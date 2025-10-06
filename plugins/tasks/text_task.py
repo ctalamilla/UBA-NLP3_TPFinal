@@ -51,3 +51,5 @@ def task_extract_texts(
     }
     print(f"✅ Total TXT generados: {len(items)} en s3://{bucket_name}/{prefix_txt}")
     return summary
+
+

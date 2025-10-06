@@ -1,0 +1,24 @@
+[2025-10-05T23:22:37.895+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_query_demo manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:22:37.901+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.pinecone_query_demo manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:22:37.901+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-05T23:22:37.907+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): pinecone_query_demo> on 2025-10-05 23:14:22+00:00
+[2025-10-05T23:22:37.916+0000] {standard_task_runner.py:57} INFO - Started process 3731 to run task
+[2025-10-05T23:22:37.921+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'pinecone_query_demo', 'manual__2025-10-05T23:14:22+00:00', '--job-id', '202', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmps3pd_cgz']
+[2025-10-05T23:22:37.923+0000] {standard_task_runner.py:85} INFO - Job 202: Subtask pinecone_query_demo
+[2025-10-05T23:22:37.955+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.pinecone_query_demo manual__2025-10-05T23:14:22+00:00 [running]> on host c16a2a509134
+[2025-10-05T23:22:38.008+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='pinecone_query_demo' AIRFLOW_CTX_EXECUTION_DATE='2025-10-05T23:14:22+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-05T23:14:22+00:00'
+[2025-10-05T23:22:38.011+0000] {SentenceTransformer.py:208} INFO - Use pytorch device_name: cpu
+[2025-10-05T23:22:38.011+0000] {SentenceTransformer.py:216} INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-10-05T23:22:41.670+0000] {discover_namespace_packages.py:12} INFO - Discovering subpackages in _NamespacePath(['/home/***/.local/lib/python3.8/site-packages/pinecone_plugins'])
+[2025-10-05T23:22:41.671+0000] {discover_plugins.py:9} INFO - Looking for plugins in pinecone_plugins.inference
+[2025-10-05T23:22:41.679+0000] {installation.py:10} INFO - Installing plugin inference into Pinecone
+[2025-10-05T23:22:43.039+0000] {logging_mixin.py:151} INFO - 🔎 Pinecone TOP-5 para 'contratación pública vial'
+[2025-10-05T23:22:43.040+0000] {logging_mixin.py:151} INFO - #01  score=0.6657  id=22036_2025-09-22::p1::6  doc_id=22036_2025-09-22_p1  page=1.0  src=boletines/2025/22036_2025-09-22.pdf
+[2025-10-05T23:22:43.041+0000] {logging_mixin.py:151} INFO - #02  score=0.5751  id=22043_2025-10-01::p1::9  doc_id=22043_2025-10-01_p1  page=1.0  src=boletines/2025/22043_2025-10-01.pdf
+[2025-10-05T23:22:43.041+0000] {logging_mixin.py:151} INFO - #03  score=0.5713  id=22037_2025-09-23::p1::11  doc_id=22037_2025-09-23_p1  page=1.0  src=boletines/2025/22037_2025-09-23.pdf
+[2025-10-05T23:22:43.042+0000] {logging_mixin.py:151} INFO - #04  score=0.5630  id=22036_2025-09-22::p1::7  doc_id=22036_2025-09-22_p1  page=1.0  src=boletines/2025/22036_2025-09-22.pdf
+[2025-10-05T23:22:43.042+0000] {logging_mixin.py:151} INFO - #05  score=0.5585  id=22036_2025-09-22::p1::13  doc_id=22036_2025-09-22_p1  page=1.0  src=boletines/2025/22036_2025-09-22.pdf
+[2025-10-05T23:22:43.043+0000] {python.py:194} INFO - Done. Returned value was: {'query': 'contratación pública vial', 'top_k': 5, 'matches': [{'id': '22036_2025-09-22::p1::6', 'score': 0.665688515, 'metadata': {'doc_id': '22036_2025-09-22_p1', 'page': 1.0, 'source': 'boletines/2025/22036_2025-09-22.pdf'}}, {'id': '22043_2025-10-01::p1::9', 'score': 0.57510668, 'metadata': {'doc_id': '22043_2025-10-01_p1', 'page': 1.0, 'source': 'boletines/2025/22043_2025-10-01.pdf'}}, {'id': '22037_2025-09-23::p1::11', 'score': 0.571265221, 'metadata': {'doc_id': '22037_2025-09-23_p1', 'page': 1.0, 'source': 'boletines/2025/22037_2025-09-23.pdf'}}, {'id': '22036_2025-09-22::p1::7', 'score': 0.563024521, 'metadata': {'doc_id': '22036_2025-09-22_p1', 'page': 1.0, 'source': 'boletines/2025/22036_2025-09-22.pdf'}}, {'id': '22036_2025-09-22::p1::13', 'score': 0.558497429, 'metadata': {'doc_id': '22036_2025-09-22_p1', 'page': 1.0, 'source': 'boletines/2025/22036_2025-09-22.pdf'}}], 'namespace': '2025'}
+[2025-10-05T23:22:43.069+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=pinecone_query_demo, execution_date=20251005T231422, start_date=20251005T232237, end_date=20251005T232243
+[2025-10-05T23:22:43.131+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-05T23:22:43.146+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

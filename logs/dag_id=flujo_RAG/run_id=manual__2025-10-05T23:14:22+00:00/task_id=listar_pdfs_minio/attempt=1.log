@@ -1,0 +1,35 @@
+[2025-10-05T23:15:55.637+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.listar_pdfs_minio manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:15:55.642+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.listar_pdfs_minio manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:15:55.643+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-05T23:15:55.650+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): listar_pdfs_minio> on 2025-10-05 23:14:22+00:00
+[2025-10-05T23:15:55.657+0000] {standard_task_runner.py:57} INFO - Started process 2931 to run task
+[2025-10-05T23:15:55.660+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'listar_pdfs_minio', 'manual__2025-10-05T23:14:22+00:00', '--job-id', '188', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmp1pyoxzz6']
+[2025-10-05T23:15:55.664+0000] {standard_task_runner.py:85} INFO - Job 188: Subtask listar_pdfs_minio
+[2025-10-05T23:15:55.718+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.listar_pdfs_minio manual__2025-10-05T23:14:22+00:00 [running]> on host c16a2a509134
+[2025-10-05T23:15:55.767+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='listar_pdfs_minio' AIRFLOW_CTX_EXECUTION_DATE='2025-10-05T23:14:22+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-05T23:14:22+00:00'
+[2025-10-05T23:15:55.770+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-05T23:15:55.771+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:15:55.771+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-05T23:15:55.772+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:15:55.772+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-05T23:15:55.954+0000] {logging_mixin.py:151} INFO - 🗂️ PDFs en s3://respaldo2/boletines/2025/:
+[2025-10-05T23:15:55.954+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22032_2025-09-16.pdf
+[2025-10-05T23:15:55.954+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22033_2025-09-17.pdf
+[2025-10-05T23:15:55.954+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22034_2025-09-18.pdf
+[2025-10-05T23:15:55.955+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22035_2025-09-19.pdf
+[2025-10-05T23:15:55.955+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22036_2025-09-22.pdf
+[2025-10-05T23:15:55.955+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22037_2025-09-23.pdf
+[2025-10-05T23:15:55.955+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22038_2025-09-24.pdf
+[2025-10-05T23:15:55.955+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22039_2025-09-25.pdf
+[2025-10-05T23:15:55.956+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22040_2025-09-26.pdf
+[2025-10-05T23:15:55.956+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22041_2025-09-29.pdf
+[2025-10-05T23:15:55.956+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22042_2025-09-30.pdf
+[2025-10-05T23:15:55.956+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22043_2025-10-01.pdf
+[2025-10-05T23:15:55.956+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22044_2025-10-02.pdf
+[2025-10-05T23:15:55.957+0000] {logging_mixin.py:151} INFO -   - boletines/2025/22045_2025-10-03.pdf
+[2025-10-05T23:15:55.957+0000] {python.py:194} INFO - Done. Returned value was: ['boletines/2025/22032_2025-09-16.pdf', 'boletines/2025/22033_2025-09-17.pdf', 'boletines/2025/22034_2025-09-18.pdf', 'boletines/2025/22035_2025-09-19.pdf', 'boletines/2025/22036_2025-09-22.pdf', 'boletines/2025/22037_2025-09-23.pdf', 'boletines/2025/22038_2025-09-24.pdf', 'boletines/2025/22039_2025-09-25.pdf', 'boletines/2025/22040_2025-09-26.pdf', 'boletines/2025/22041_2025-09-29.pdf', 'boletines/2025/22042_2025-09-30.pdf', 'boletines/2025/22043_2025-10-01.pdf', 'boletines/2025/22044_2025-10-02.pdf', 'boletines/2025/22045_2025-10-03.pdf']
+[2025-10-05T23:15:55.972+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=listar_pdfs_minio, execution_date=20251005T231422, start_date=20251005T231555, end_date=20251005T231555
+[2025-10-05T23:15:56.012+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-05T23:15:56.031+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -17,7 +17,7 @@ def req(
     method: str,
     path: str,
     json_body: Optional[Dict[str, Any]] = None,
-    timeout: int = 60,
+    timeout: int = 300,
 ) -> Dict[str, Any]:
     url = base.rstrip("/") + path
     try:

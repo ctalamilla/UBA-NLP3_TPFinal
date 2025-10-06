@@ -5,8 +5,8 @@ import os
 import re
 from typing import Dict, Any, List, Optional
 
-from tasks.s3_utilities import list_keys, read_text, upload_text
-from tasks.agent_classifier import ClassifierAgent
+from s3_utilities import list_keys, read_text, upload_text
+from agent_classifier import ClassifierAgent
 
 def _derive_ids(rec: dict) -> (str, int):
     """

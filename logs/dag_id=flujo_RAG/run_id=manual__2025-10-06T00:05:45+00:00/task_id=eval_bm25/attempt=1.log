@@ -1,0 +1,34 @@
+[2025-10-06T00:58:47.580+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-06T00:05:45+00:00 [queued]>
+[2025-10-06T00:58:47.584+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-06T00:05:45+00:00 [queued]>
+[2025-10-06T00:58:47.584+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-06T00:58:47.589+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): eval_bm25> on 2025-10-06 00:05:45+00:00
+[2025-10-06T00:58:47.595+0000] {standard_task_runner.py:57} INFO - Started process 9634 to run task
+[2025-10-06T00:58:47.598+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'eval_bm25', 'manual__2025-10-06T00:05:45+00:00', '--job-id', '244', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpr_fsjspq']
+[2025-10-06T00:58:47.601+0000] {standard_task_runner.py:85} INFO - Job 244: Subtask eval_bm25
+[2025-10-06T00:58:47.625+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.eval_bm25 manual__2025-10-06T00:05:45+00:00 [running]> on host c16a2a509134
+[2025-10-06T00:58:47.657+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='eval_bm25' AIRFLOW_CTX_EXECUTION_DATE='2025-10-06T00:05:45+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-06T00:05:45+00:00'
+[2025-10-06T00:58:47.659+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-06T00:58:47.659+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T00:58:47.660+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-06T00:58:47.660+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T00:58:47.660+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-06T00:58:47.815+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T00:58:47.815+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T00:58:47.854+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T00:58:47.855+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T00:58:48.097+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T00:58:48.098+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-06T00:58:48.098+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T00:58:48.098+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-06T00:58:48.135+0000] {logging_mixin.py:151} INFO - 📄 Eval JSON: s3://respaldo2/rag/eval/2025/bm25_eval_20251006T005848Z.json
+[2025-10-06T00:58:48.136+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T00:58:48.136+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T00:58:48.180+0000] {logging_mixin.py:151} INFO - 📑 Eval CSV: s3://respaldo2/rag/eval/2025/bm25_eval_20251006T005848Z.csv
+[2025-10-06T00:58:48.184+0000] {python.py:194} INFO - Done. Returned value was: {'queries': 1, 'macro': {'P@5': 0.0, 'P@10': 0.0, 'R@5': 0.0, 'R@10': 0.0, 'MRR@10': 0.0, 'nDCG@10': 0.0}, 'json_key': 'rag/eval/2025/bm25_eval_20251006T005848Z.json', 'csv_key': 'rag/eval/2025/bm25_eval_20251006T005848Z.csv'}
+[2025-10-06T00:58:48.198+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=eval_bm25, execution_date=20251006T000545, start_date=20251006T005847, end_date=20251006T005848
+[2025-10-06T00:58:48.252+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-06T00:58:48.264+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

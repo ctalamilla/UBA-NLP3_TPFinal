@@ -1,0 +1,27 @@
+[2025-10-05T22:53:28.095+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-10-05T22:52:38+00:00 [queued]>
+[2025-10-05T22:53:28.099+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.extract_texts manual__2025-10-05T22:52:38+00:00 [queued]>
+[2025-10-05T22:53:28.105+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-05T22:53:28.112+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_texts> on 2025-10-05 22:52:38+00:00
+[2025-10-05T22:53:28.119+0000] {standard_task_runner.py:57} INFO - Started process 1205 to run task
+[2025-10-05T22:53:28.123+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'extract_texts', 'manual__2025-10-05T22:52:38+00:00', '--job-id', '168', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpprbe9t6o']
+[2025-10-05T22:53:28.125+0000] {standard_task_runner.py:85} INFO - Job 168: Subtask extract_texts
+[2025-10-05T22:53:28.154+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.extract_texts manual__2025-10-05T22:52:38+00:00 [running]> on host c16a2a509134
+[2025-10-05T22:53:28.201+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='extract_texts' AIRFLOW_CTX_EXECUTION_DATE='2025-10-05T22:52:38+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-05T22:52:38+00:00'
+[2025-10-05T22:53:28.393+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22032_2025-09-16.pdf -> rag/text/2025/22032_2025-09-16.txt (190832 chars)
+[2025-10-05T22:53:28.495+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22033_2025-09-17.pdf -> rag/text/2025/22033_2025-09-17.txt (191162 chars)
+[2025-10-05T22:53:28.614+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22034_2025-09-18.pdf -> rag/text/2025/22034_2025-09-18.txt (216334 chars)
+[2025-10-05T22:53:28.723+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22035_2025-09-19.pdf -> rag/text/2025/22035_2025-09-19.txt (201927 chars)
+[2025-10-05T22:53:28.830+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22036_2025-09-22.pdf -> rag/text/2025/22036_2025-09-22.txt (197875 chars)
+[2025-10-05T22:53:28.935+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22037_2025-09-23.pdf -> rag/text/2025/22037_2025-09-23.txt (193991 chars)
+[2025-10-05T22:53:29.021+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22038_2025-09-24.pdf -> rag/text/2025/22038_2025-09-24.txt (150094 chars)
+[2025-10-05T22:53:29.129+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22039_2025-09-25.pdf -> rag/text/2025/22039_2025-09-25.txt (211914 chars)
+[2025-10-05T22:53:29.226+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22040_2025-09-26.pdf -> rag/text/2025/22040_2025-09-26.txt (180511 chars)
+[2025-10-05T22:53:29.343+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22041_2025-09-29.pdf -> rag/text/2025/22041_2025-09-29.txt (237066 chars)
+[2025-10-05T22:53:29.444+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22042_2025-09-30.pdf -> rag/text/2025/22042_2025-09-30.txt (188012 chars)
+[2025-10-05T22:53:29.570+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22043_2025-10-01.pdf -> rag/text/2025/22043_2025-10-01.txt (250395 chars)
+[2025-10-05T22:53:29.682+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22044_2025-10-02.pdf -> rag/text/2025/22044_2025-10-02.txt (226849 chars)
+[2025-10-05T22:53:29.776+0000] {logging_mixin.py:151} INFO - [extract_texts] boletines/2025/22045_2025-10-03.pdf -> rag/text/2025/22045_2025-10-03.txt (171938 chars)
+[2025-10-05T22:53:29.776+0000] {python.py:194} INFO - Done. Returned value was: {'pdfs_processed': 14, 'txt_written': 14}
+[2025-10-05T22:53:29.789+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=extract_texts, execution_date=20251005T225238, start_date=20251005T225328, end_date=20251005T225329
+[2025-10-05T22:53:29.815+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-05T22:53:29.832+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
