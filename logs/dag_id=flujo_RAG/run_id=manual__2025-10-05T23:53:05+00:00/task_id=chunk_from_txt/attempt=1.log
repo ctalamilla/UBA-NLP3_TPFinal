@@ -1,0 +1,93 @@
+[2025-10-05T23:55:49.424+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.chunk_from_txt manual__2025-10-05T23:53:05+00:00 [queued]>
+[2025-10-05T23:55:49.428+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.chunk_from_txt manual__2025-10-05T23:53:05+00:00 [queued]>
+[2025-10-05T23:55:49.428+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-05T23:55:49.432+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): chunk_from_txt> on 2025-10-05 23:53:05+00:00
+[2025-10-05T23:55:49.439+0000] {standard_task_runner.py:57} INFO - Started process 6369 to run task
+[2025-10-05T23:55:49.441+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'chunk_from_txt', 'manual__2025-10-05T23:53:05+00:00', '--job-id', '231', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpq4gn9mj7']
+[2025-10-05T23:55:49.444+0000] {standard_task_runner.py:85} INFO - Job 231: Subtask chunk_from_txt
+[2025-10-05T23:55:49.467+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.chunk_from_txt manual__2025-10-05T23:53:05+00:00 [running]> on host c16a2a509134
+[2025-10-05T23:55:49.499+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='chunk_from_txt' AIRFLOW_CTX_EXECUTION_DATE='2025-10-05T23:53:05+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-05T23:53:05+00:00'
+[2025-10-05T23:55:49.500+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-05T23:55:49.500+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:49.501+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-05T23:55:49.501+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:49.501+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-05T23:55:49.644+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:49.645+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:49.738+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:49.739+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:49.980+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22032_2025-09-16.ndjson  (chunks=292)
+[2025-10-05T23:55:49.980+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:49.981+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.044+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.045+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.082+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22033_2025-09-17.ndjson  (chunks=295)
+[2025-10-05T23:55:50.083+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.083+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.152+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.152+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.193+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22034_2025-09-18.ndjson  (chunks=341)
+[2025-10-05T23:55:50.194+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.194+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.268+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.269+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.308+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22035_2025-09-19.ndjson  (chunks=302)
+[2025-10-05T23:55:50.309+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.309+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.521+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.522+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.559+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22036_2025-09-22.ndjson  (chunks=315)
+[2025-10-05T23:55:50.559+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.559+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.623+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.624+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.660+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22037_2025-09-23.ndjson  (chunks=296)
+[2025-10-05T23:55:50.660+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.660+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.729+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.729+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.770+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22038_2025-09-24.ndjson  (chunks=238)
+[2025-10-05T23:55:50.771+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.771+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:50.839+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:50.839+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.027+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22039_2025-09-25.ndjson  (chunks=325)
+[2025-10-05T23:55:51.028+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.028+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.093+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.093+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.128+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22040_2025-09-26.ndjson  (chunks=270)
+[2025-10-05T23:55:51.129+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.129+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.201+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.201+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.240+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22041_2025-09-29.ndjson  (chunks=361)
+[2025-10-05T23:55:51.240+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.240+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.307+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.308+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.346+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22042_2025-09-30.ndjson  (chunks=275)
+[2025-10-05T23:55:51.347+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.347+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.565+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.565+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.602+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22043_2025-10-01.ndjson  (chunks=376)
+[2025-10-05T23:55:51.602+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.602+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.671+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.672+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.708+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22044_2025-10-02.ndjson  (chunks=367)
+[2025-10-05T23:55:51.708+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.708+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.771+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.771+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.808+0000] {logging_mixin.py:151} INFO - ✅ NDJSON subido: s3://respaldo2/rag/chunks/2025/22045_2025-10-03.ndjson  (chunks=273)
+[2025-10-05T23:55:51.808+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:55:51.808+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:55:51.842+0000] {logging_mixin.py:151} INFO - 📄 Manifest: s3://respaldo2/rag/chunks/2025/_chunks_manifest.json
+[2025-10-05T23:55:51.843+0000] {python.py:194} INFO - Done. Returned value was: {'processed': 14, 'pages': 14, 'chunks': 4326, 'manifest_key': 'rag/chunks/2025/_chunks_manifest.json'}
+[2025-10-05T23:55:51.853+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=chunk_from_txt, execution_date=20251005T235305, start_date=20251005T235549, end_date=20251005T235551
+[2025-10-05T23:55:51.880+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-05T23:55:51.894+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

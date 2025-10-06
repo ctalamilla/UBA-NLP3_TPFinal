@@ -78,6 +78,7 @@ with DAG(
             "aws_conn_id": "minio_s3",
         },
     )
+    
     chunk_from_txt = PythonOperator(
         task_id="chunk_from_txt",
         python_callable=task_chunk_txt,
@@ -91,7 +92,8 @@ with DAG(
             "overlap": 80,
         },
     )
-    
+
+
 
 
     classify_chunks_agent = PythonOperator(

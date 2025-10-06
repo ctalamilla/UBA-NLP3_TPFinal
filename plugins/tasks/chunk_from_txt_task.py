@@ -96,3 +96,4 @@ def task_chunk_txt(
     print(f"📄 Manifest: s3://{bucket_name}/{manifest_key}")
 
     return {"processed": len(items), "pages": total_pages, "chunks": total_chunks, "manifest_key": manifest_key}
+

@@ -1,0 +1,59 @@
+[2025-10-05T23:22:45.625+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG.fusion_query_demo manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:22:45.630+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG.fusion_query_demo manual__2025-10-05T23:14:22+00:00 [queued]>
+[2025-10-05T23:22:45.631+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-05T23:22:45.637+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): fusion_query_demo> on 2025-10-05 23:14:22+00:00
+[2025-10-05T23:22:45.646+0000] {standard_task_runner.py:57} INFO - Started process 3847 to run task
+[2025-10-05T23:22:45.649+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG', 'fusion_query_demo', 'manual__2025-10-05T23:14:22+00:00', '--job-id', '204', '--raw', '--subdir', 'DAGS_FOLDER/RAG_dag.py', '--cfg-path', '/tmp/tmpjmea8j9u']
+[2025-10-05T23:22:45.652+0000] {standard_task_runner.py:85} INFO - Job 204: Subtask fusion_query_demo
+[2025-10-05T23:22:45.684+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG.fusion_query_demo manual__2025-10-05T23:14:22+00:00 [running]> on host c16a2a509134
+[2025-10-05T23:22:45.730+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG' AIRFLOW_CTX_TASK_ID='fusion_query_demo' AIRFLOW_CTX_EXECUTION_DATE='2025-10-05T23:14:22+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-05T23:14:22+00:00'
+[2025-10-05T23:22:45.732+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-05T23:22:45.732+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:45.733+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-05T23:22:45.733+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:45.733+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-05T23:22:45.935+0000] {SentenceTransformer.py:208} INFO - Use pytorch device_name: cpu
+[2025-10-05T23:22:45.935+0000] {SentenceTransformer.py:216} INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-10-05T23:22:50.067+0000] {discover_namespace_packages.py:12} INFO - Discovering subpackages in _NamespacePath(['/home/***/.local/lib/python3.8/site-packages/pinecone_plugins'])
+[2025-10-05T23:22:50.068+0000] {discover_plugins.py:9} INFO - Looking for plugins in pinecone_plugins.inference
+[2025-10-05T23:22:50.073+0000] {installation.py:10} INFO - Installing plugin inference into Pinecone
+[2025-10-05T23:22:53.183+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.184+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.236+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.236+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.288+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.288+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.336+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.336+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.390+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.390+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.439+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.440+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.669+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.670+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.714+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.715+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.765+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.766+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.813+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.814+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.876+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-05T23:22:53.876+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-05T23:22:53.921+0000] {logging_mixin.py:151} INFO - ✅ Fusión RRF subida a s3://respaldo2/rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251005_232253.json  (top=10)
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - 🔀 RRF para 'contratación pública vial'
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - #01  22035_2025-09-19_p1  page=None  src=-
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - #02  22036_2025-09-22::p1::6  page=None  src=-
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - #03  22043_2025-10-01_p1  page=None  src=-
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - #04  22043_2025-10-01::p1::9  page=None  src=-
+[2025-10-05T23:22:53.922+0000] {logging_mixin.py:151} INFO - #05  22041_2025-09-29_p1  page=None  src=-
+[2025-10-05T23:22:53.923+0000] {logging_mixin.py:151} INFO - #06  22037_2025-09-23::p1::11  page=None  src=-
+[2025-10-05T23:22:53.923+0000] {logging_mixin.py:151} INFO - #07  22042_2025-09-30_p1  page=None  src=-
+[2025-10-05T23:22:53.923+0000] {logging_mixin.py:151} INFO - #08  22036_2025-09-22::p1::7  page=None  src=-
+[2025-10-05T23:22:53.923+0000] {logging_mixin.py:151} INFO - #09  22033_2025-09-17_p1  page=None  src=-
+[2025-10-05T23:22:53.923+0000] {logging_mixin.py:151} INFO - #10  22036_2025-09-22::p1::13  page=None  src=-
+[2025-10-05T23:22:53.933+0000] {python.py:194} INFO - Done. Returned value was: {'out_key': 'rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251005_232253.json', 'count': 10}
+[2025-10-05T23:22:53.949+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG, task_id=fusion_query_demo, execution_date=20251005T231422, start_date=20251005T232245, end_date=20251005T232253
+[2025-10-05T23:22:54.002+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-05T23:22:54.015+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
