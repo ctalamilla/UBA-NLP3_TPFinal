@@ -346,6 +346,7 @@ services:
     build:
       context: .
       dockerfile: fastapi_app/Dockerfile
+    container_name: fast_api_app
     depends_on:
       - minio
     ports:
