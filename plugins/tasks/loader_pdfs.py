@@ -230,12 +230,3 @@ def documents_to_chunks(
 
 
 
-# #  Demo de uso rápido
-# if __name__ == "__main__":
-#     corpus_dir = Path("./corpus")   # Carpeta con PDFs
-#     all_docs = folder_pdfs_to_documents(corpus_dir, recursive=True)
-#     print(f"Se leyeron {len(all_docs)} páginas con texto.")
-
-#     chunks_map = documents_to_chunks(all_docs, max_tokens_chunk=300, overlap=80)
-#     n_chunks = sum(len(v) for v in chunks_map.values())
-#     print(f"Se generaron {n_chunks} chunks.")

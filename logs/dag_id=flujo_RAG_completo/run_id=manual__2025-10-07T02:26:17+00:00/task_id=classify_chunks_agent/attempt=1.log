@@ -1,0 +1,236 @@
+[2025-10-07T02:28:11.175+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_chunks_agent manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T02:28:11.179+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_chunks_agent manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T02:28:11.180+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-07T02:28:11.185+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): classify_chunks_agent> on 2025-10-07 02:26:17+00:00
+[2025-10-07T02:28:11.193+0000] {standard_task_runner.py:57} INFO - Started process 17712 to run task
+[2025-10-07T02:28:11.196+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'classify_chunks_agent', 'manual__2025-10-07T02:26:17+00:00', '--job-id', '305', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmp9bg902y0']
+[2025-10-07T02:28:11.198+0000] {standard_task_runner.py:85} INFO - Job 305: Subtask classify_chunks_agent
+[2025-10-07T02:28:11.226+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.classify_chunks_agent manual__2025-10-07T02:26:17+00:00 [running]> on host a21c1baf7ef9
+[2025-10-07T02:28:11.264+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='classify_chunks_agent' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T02:26:17+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T02:26:17+00:00'
+[2025-10-07T02:28:11.266+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-07T02:28:11.266+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:28:11.267+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-07T02:28:11.267+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:28:11.267+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-07T02:28:11.407+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:28:11.407+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:28:15.818+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:18.101+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:18.106+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:28:18.107+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:28:18.163+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 11 chunks → s3://respaldo2/rag/chunks_labeled/2025/22032_2025-09-16.ndjson
+[2025-10-07T02:28:18.164+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:28:18.164+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:28:20.928+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:27.049+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:30.532+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:33.656+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:36.554+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:39.925+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:45.577+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:49.202+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:53.765+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:28:56.846+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:02.310+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:02.312+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:29:02.312+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:29:02.355+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 16 chunks → s3://respaldo2/rag/chunks_labeled/2025/22033_2025-09-17.ndjson
+[2025-10-07T02:29:02.356+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:29:02.356+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:29:08.933+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:12.026+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:15.856+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:20.257+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:27.091+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:27.100+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:29:27.103+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:29:27.326+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 15 chunks → s3://respaldo2/rag/chunks_labeled/2025/22034_2025-09-18.ndjson
+[2025-10-07T02:29:27.326+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:29:27.326+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:29:31.481+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:35.025+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:39.632+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:45.427+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:48.340+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:51.633+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:55.213+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:29:58.651+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:01.023+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:04.828+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:08.140+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:08.151+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:30:08.152+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:30:08.216+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 20 chunks → s3://respaldo2/rag/chunks_labeled/2025/22035_2025-09-19.ndjson
+[2025-10-07T02:30:08.217+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:30:08.217+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:30:11.876+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:14.682+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:18.256+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:21.484+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:26.469+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:29.527+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:34.512+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:36.828+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:42.004+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:44.954+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:49.654+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:51.895+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:54.928+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:30:59.787+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:03.070+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:06.853+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:09.980+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:09.992+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:31:09.994+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:31:10.076+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 24 chunks → s3://respaldo2/rag/chunks_labeled/2025/22036_2025-09-22.ndjson
+[2025-10-07T02:31:10.077+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:31:10.077+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:31:15.119+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:17.549+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:20.088+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:24.026+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:25.970+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:28.689+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:30.923+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:34.083+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:37.990+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:41.735+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:46.247+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:52.642+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:31:52.650+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:31:52.652+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:31:52.722+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 23 chunks → s3://respaldo2/rag/chunks_labeled/2025/22037_2025-09-23.ndjson
+[2025-10-07T02:31:52.723+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:31:52.723+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:31:56.308+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:00.345+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:05.557+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:05.569+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:05.570+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:05.902+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 9 chunks → s3://respaldo2/rag/chunks_labeled/2025/22038_2025-09-24.ndjson
+[2025-10-07T02:32:05.903+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:05.903+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:09.241+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:12.177+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:17.607+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:21.501+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:24.728+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:28.712+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:31.533+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:33.814+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:33.824+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:33.825+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:33.894+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 17 chunks → s3://respaldo2/rag/chunks_labeled/2025/22039_2025-09-25.ndjson
+[2025-10-07T02:32:33.895+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:33.895+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:37.106+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:41.506+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:47.438+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:47.440+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:47.441+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:47.480+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 9 chunks → s3://respaldo2/rag/chunks_labeled/2025/22040_2025-09-26.ndjson
+[2025-10-07T02:32:47.480+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:32:47.480+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:32:50.358+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:52.113+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:55.280+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:32:58.394+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:02.626+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:06.073+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:08.388+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:13.035+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:16.293+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:20.152+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:24.158+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:25.782+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:29.158+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:33.033+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:38.111+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:40.614+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:40.626+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:33:40.627+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:33:40.690+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 25 chunks → s3://respaldo2/rag/chunks_labeled/2025/22041_2025-09-29.ndjson
+[2025-10-07T02:33:40.691+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:33:40.691+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:33:46.500+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:50.924+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:53.149+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:33:57.980+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:01.363+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:05.791+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:08.437+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:10.741+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:13.263+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:15.554+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:17.704+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:17.762+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:34:17.765+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:34:17.853+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 19 chunks → s3://respaldo2/rag/chunks_labeled/2025/22042_2025-09-30.ndjson
+[2025-10-07T02:34:17.854+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:34:17.854+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:34:20.814+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:25.929+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:30.076+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:33.249+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:36.728+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:39.557+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:42.603+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:45.675+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:50.796+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:54.706+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:34:59.621+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:03.762+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:06.486+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:09.296+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:11.764+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:14.554+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:14.562+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:35:14.563+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:35:14.633+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 24 chunks → s3://respaldo2/rag/chunks_labeled/2025/22043_2025-10-01.ndjson
+[2025-10-07T02:35:14.634+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:35:14.634+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:35:16.792+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:20.084+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:25.325+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:33.089+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:36.779+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:40.083+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:44.150+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:50.032+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:50.034+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:35:50.034+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:35:50.077+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 13 chunks → s3://respaldo2/rag/chunks_labeled/2025/22044_2025-10-02.ndjson
+[2025-10-07T02:35:50.078+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:35:50.078+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:35:53.827+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:35:56.551+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:00.820+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:07.582+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:13.342+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:13.353+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:36:13.353+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:36:13.407+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 11 chunks → s3://respaldo2/rag/chunks_labeled/2025/22045_2025-10-03.ndjson
+[2025-10-07T02:36:13.408+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:36:13.408+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:36:17.220+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:20.106+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:23.722+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:28.707+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:33.905+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:37.654+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:41.518+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:46.968+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:50.285+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:36:58.599+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:37:04.655+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:37:06.719+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:37:09.258+0000] {_client.py:1025} INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-10-07T02:37:09.274+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-07T02:37:09.276+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-07T02:37:09.352+0000] {logging_mixin.py:151} INFO - ✅ Clasificados 22 chunks → s3://respaldo2/rag/chunks_labeled/2025/22046_2025-10-06.ndjson
+[2025-10-07T02:37:09.352+0000] {python.py:194} INFO - Done. Returned value was: {'processed': 15, 'dst_prefix': 'rag/chunks_labeled/2025/', 'items': [{'src': 'rag/chunks/2025/22032_2025-09-16.ndjson', 'dst': 'rag/chunks_labeled/2025/22032_2025-09-16.ndjson', 'chunks': 11}, {'src': 'rag/chunks/2025/22033_2025-09-17.ndjson', 'dst': 'rag/chunks_labeled/2025/22033_2025-09-17.ndjson', 'chunks': 16}, {'src': 'rag/chunks/2025/22034_2025-09-18.ndjson', 'dst': 'rag/chunks_labeled/2025/22034_2025-09-18.ndjson', 'chunks': 15}, {'src': 'rag/chunks/2025/22035_2025-09-19.ndjson', 'dst': 'rag/chunks_labeled/2025/22035_2025-09-19.ndjson', 'chunks': 20}, {'src': 'rag/chunks/2025/22036_2025-09-22.ndjson', 'dst': 'rag/chunks_labeled/2025/22036_2025-09-22.ndjson', 'chunks': 24}, {'src': 'rag/chunks/2025/22037_2025-09-23.ndjson', 'dst': 'rag/chunks_labeled/2025/22037_2025-09-23.ndjson', 'chunks': 23}, {'src': 'rag/chunks/2025/22038_2025-09-24.ndjson', 'dst': 'rag/chunks_labeled/2025/22038_2025-09-24.ndjson', 'chunks': 9}, {'src': 'rag/chunks/2025/22039_2025-09-25.ndjson', 'dst': 'rag/chunks_labeled/2025/22039_2025-09-25.ndjson', 'chunks': 17}, {'src': 'rag/chunks/2025/22040_2025-09-26.ndjson', 'dst': 'rag/chunks_labeled/2025/22040_2025-09-26.ndjson', 'chunks': 9}, {'src': 'rag/chunks/2025/22041_2025-09-29.ndjson', 'dst': 'rag/chunks_labeled/2025/22041_2025-09-29.ndjson', 'chunks': 25}, {'src': 'rag/chunks/2025/22042_2025-09-30.ndjson', 'dst': 'rag/chunks_labeled/2025/22042_2025-09-30.ndjson', 'chunks': 19}, {'src': 'rag/chunks/2025/22043_2025-10-01.ndjson', 'dst': 'rag/chunks_labeled/2025/22043_2025-10-01.ndjson', 'chunks': 24}, {'src': 'rag/chunks/2025/22044_2025-10-02.ndjson', 'dst': 'rag/chunks_labeled/2025/22044_2025-10-02.ndjson', 'chunks': 13}, {'src': 'rag/chunks/2025/22045_2025-10-03.ndjson', 'dst': 'rag/chunks_labeled/2025/22045_2025-10-03.ndjson', 'chunks': 11}, {'src': 'rag/chunks/2025/22046_2025-10-06.ndjson', 'dst': 'rag/chunks_labeled/2025/22046_2025-10-06.ndjson', 'chunks': 22}]}
+[2025-10-07T02:37:09.365+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG_completo, task_id=classify_chunks_agent, execution_date=20251007T022617, start_date=20251007T022811, end_date=20251007T023709
+[2025-10-07T02:37:09.413+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-07T02:37:09.428+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

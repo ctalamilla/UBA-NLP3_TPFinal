@@ -1,0 +1,22 @@
+[2025-10-07T10:29:52.064+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T10:29:52.068+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T10:29:52.068+0000] {taskinstance.py:1359} INFO - Starting attempt 4 of 4
+[2025-10-07T10:29:52.073+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): classify_op_texts> on 2025-10-07 02:26:17+00:00
+[2025-10-07T10:29:52.080+0000] {standard_task_runner.py:57} INFO - Started process 10552 to run task
+[2025-10-07T10:29:52.082+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'classify_op_texts', 'manual__2025-10-07T02:26:17+00:00', '--job-id', '313', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpk7v3_7vg']
+[2025-10-07T10:29:52.084+0000] {standard_task_runner.py:85} INFO - Job 313: Subtask classify_op_texts
+[2025-10-07T10:29:52.110+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [running]> on host a21c1baf7ef9
+[2025-10-07T10:29:52.147+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='classify_op_texts' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T02:26:17+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T02:26:17+00:00'
+[2025-10-07T10:29:52.188+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/tasks/classify_op_texts_task.py", line 440, in task_classify_op_texts
+    raise FileNotFoundError(f"No existe s3://{bucket_name}/{meta_key_in}")
+FileNotFoundError: No existe s3://respaldo2/rag/meta_op/2025/_index.jsonl
+[2025-10-07T10:29:52.193+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=flujo_RAG_completo, task_id=classify_op_texts, execution_date=20251007T022617, start_date=20251007T102952, end_date=20251007T102952
+[2025-10-07T10:29:52.197+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 313 for task classify_op_texts (No existe s3://respaldo2/rag/meta_op/2025/_index.jsonl; 10552)
+[2025-10-07T10:29:52.218+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-07T10:29:52.226+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

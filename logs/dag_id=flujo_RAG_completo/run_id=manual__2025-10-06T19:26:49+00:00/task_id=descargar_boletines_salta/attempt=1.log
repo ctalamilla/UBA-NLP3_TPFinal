@@ -1,0 +1,32 @@
+[2025-10-06T19:26:54.927+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.descargar_boletines_salta manual__2025-10-06T19:26:49+00:00 [queued]>
+[2025-10-06T19:26:54.930+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.descargar_boletines_salta manual__2025-10-06T19:26:49+00:00 [queued]>
+[2025-10-06T19:26:54.930+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-06T19:26:54.934+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): descargar_boletines_salta> on 2025-10-06 19:26:49+00:00
+[2025-10-06T19:26:54.942+0000] {standard_task_runner.py:57} INFO - Started process 132 to run task
+[2025-10-06T19:26:54.946+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'descargar_boletines_salta', 'manual__2025-10-06T19:26:49+00:00', '--job-id', '280', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpfd8ac6ci']
+[2025-10-06T19:26:54.950+0000] {standard_task_runner.py:85} INFO - Job 280: Subtask descargar_boletines_salta
+[2025-10-06T19:26:54.976+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.descargar_boletines_salta manual__2025-10-06T19:26:49+00:00 [running]> on host a21c1baf7ef9
+[2025-10-06T19:26:55.015+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='descargar_boletines_salta' AIRFLOW_CTX_EXECUTION_DATE='2025-10-06T19:26:49+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-06T19:26:49+00:00'
+[2025-10-06T19:26:56.545+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-06T19:26:56.546+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-06T19:26:56.546+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-06T19:26:56.546+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-06T19:26:56.546+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-06T19:26:56.788+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22036_2025-09-22.pdf
+[2025-10-06T19:26:58.391+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22037_2025-09-23.pdf
+[2025-10-06T19:26:59.970+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22038_2025-09-24.pdf
+[2025-10-06T19:27:01.628+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22039_2025-09-25.pdf
+[2025-10-06T19:27:05.976+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22040_2025-09-26.pdf
+[2025-10-06T19:27:09.029+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22041_2025-09-29.pdf
+[2025-10-06T19:27:13.810+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22042_2025-09-30.pdf
+[2025-10-06T19:27:16.702+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22043_2025-10-01.pdf
+[2025-10-06T19:27:19.429+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22044_2025-10-02.pdf
+[2025-10-06T19:27:21.372+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22045_2025-10-03.pdf
+[2025-10-06T19:27:23.749+0000] {logging_mixin.py:151} INFO - ✅ PDF subido: s3://respaldo2/boletines/2025/22046_2025-10-06.pdf
+[2025-10-06T19:27:23.757+0000] {logging_mixin.py:151} INFO - ✅ 11 boletines subidos a MinIO (bucket 'respaldo2', prefix 'boletines/2025/').
+[2025-10-06T19:27:23.758+0000] {python.py:194} INFO - Done. Returned value was: {'subidos': 11, 'detalles': [{'nro': 22036, 'fecha': '2025-09-22', 'status': 'subido:respaldo2/boletines/2025/22036_2025-09-22.pdf'}, {'nro': 22037, 'fecha': '2025-09-23', 'status': 'subido:respaldo2/boletines/2025/22037_2025-09-23.pdf'}, {'nro': 22038, 'fecha': '2025-09-24', 'status': 'subido:respaldo2/boletines/2025/22038_2025-09-24.pdf'}, {'nro': 22039, 'fecha': '2025-09-25', 'status': 'subido:respaldo2/boletines/2025/22039_2025-09-25.pdf'}, {'nro': 22040, 'fecha': '2025-09-26', 'status': 'subido:respaldo2/boletines/2025/22040_2025-09-26.pdf'}, {'nro': 22041, 'fecha': '2025-09-29', 'status': 'subido:respaldo2/boletines/2025/22041_2025-09-29.pdf'}, {'nro': 22042, 'fecha': '2025-09-30', 'status': 'subido:respaldo2/boletines/2025/22042_2025-09-30.pdf'}, {'nro': 22043, 'fecha': '2025-10-01', 'status': 'subido:respaldo2/boletines/2025/22043_2025-10-01.pdf'}, {'nro': 22044, 'fecha': '2025-10-02', 'status': 'subido:respaldo2/boletines/2025/22044_2025-10-02.pdf'}, {'nro': 22045, 'fecha': '2025-10-03', 'status': 'subido:respaldo2/boletines/2025/22045_2025-10-03.pdf'}, {'nro': 22046, 'fecha': '2025-10-06', 'status': 'subido:respaldo2/boletines/2025/22046_2025-10-06.pdf'}]}
+[2025-10-06T19:27:23.772+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG_completo, task_id=descargar_boletines_salta, execution_date=20251006T192649, start_date=20251006T192654, end_date=20251006T192723
+[2025-10-06T19:27:23.824+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-06T19:27:23.836+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
