@@ -1,0 +1,29 @@
+[2025-10-07T02:34:33.134+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.extract_texts_by_op manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T02:34:33.138+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.extract_texts_by_op manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T02:34:33.138+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-10-07T02:34:33.143+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_texts_by_op> on 2025-10-07 02:26:17+00:00
+[2025-10-07T02:34:33.149+0000] {standard_task_runner.py:57} INFO - Started process 18026 to run task
+[2025-10-07T02:34:33.152+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'extract_texts_by_op', 'manual__2025-10-07T02:26:17+00:00', '--job-id', '306', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpf0cv71o8']
+[2025-10-07T02:34:33.154+0000] {standard_task_runner.py:85} INFO - Job 306: Subtask extract_texts_by_op
+[2025-10-07T02:34:33.180+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.extract_texts_by_op manual__2025-10-07T02:26:17+00:00 [running]> on host a21c1baf7ef9
+[2025-10-07T02:34:33.220+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='extract_texts_by_op' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T02:26:17+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T02:26:17+00:00'
+[2025-10-07T02:34:34.011+0000] {logging_mixin.py:151} INFO - ✅ 77 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22032_2025-09-16.pdf
+[2025-10-07T02:34:34.593+0000] {logging_mixin.py:151} INFO - ✅ 88 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22033_2025-09-17.pdf
+[2025-10-07T02:34:35.145+0000] {logging_mixin.py:151} INFO - ✅ 79 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22034_2025-09-18.pdf
+[2025-10-07T02:34:35.713+0000] {logging_mixin.py:151} INFO - ✅ 74 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22035_2025-09-19.pdf
+[2025-10-07T02:34:36.277+0000] {logging_mixin.py:151} INFO - ✅ 75 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22036_2025-09-22.pdf
+[2025-10-07T02:34:36.881+0000] {logging_mixin.py:151} INFO - ✅ 74 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22037_2025-09-23.pdf
+[2025-10-07T02:34:37.280+0000] {logging_mixin.py:151} INFO - ✅ 73 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22038_2025-09-24.pdf
+[2025-10-07T02:34:37.866+0000] {logging_mixin.py:151} INFO - ✅ 99 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22039_2025-09-25.pdf
+[2025-10-07T02:34:38.351+0000] {logging_mixin.py:151} INFO - ✅ 81 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22040_2025-09-26.pdf
+[2025-10-07T02:34:38.878+0000] {logging_mixin.py:151} INFO - ✅ 80 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22041_2025-09-29.pdf
+[2025-10-07T02:34:39.455+0000] {logging_mixin.py:151} INFO - ✅ 72 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22042_2025-09-30.pdf
+[2025-10-07T02:34:40.117+0000] {logging_mixin.py:151} INFO - ✅ 93 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22043_2025-10-01.pdf
+[2025-10-07T02:34:40.643+0000] {logging_mixin.py:151} INFO - ✅ 81 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22044_2025-10-02.pdf
+[2025-10-07T02:34:41.108+0000] {logging_mixin.py:151} INFO - ✅ 79 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22045_2025-10-03.pdf
+[2025-10-07T02:34:41.666+0000] {logging_mixin.py:151} INFO - ✅ 97 TXT(s) por OP desde: s3://respaldo2/boletines/2025/22046_2025-10-06.pdf
+[2025-10-07T02:34:41.667+0000] {logging_mixin.py:151} INFO - ✅ Total TXT generados (por OP): 1222 en s3://respaldo2/rag/text_op/2025/
+[2025-10-07T02:34:41.668+0000] {python.py:194} INFO - Done. Returned value was: {'processed_pdfs': 15, 'generated_docs': 1222, 'bucket': 'respaldo2', 'prefix_pdfs': 'boletines/2025/', 'prefix_txt': 'rag/text_op/2025/', 'prefix_meta': None, 'generated_at': '2025-10-07T02:34:41.667679Z', 'items_sample': [{'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text_op/2025/22032_OPSA100051525_2025-09-16.txt', 'boletin': '22032', 'fecha': '2025-09-16', 'op': 'SA100051525', 'doc_index': 1, 'chars': 10340, 'created_at': '2025-10-07T02:34:33.402868Z'}, {'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text_op/2025/22032_OPSA100051526_2025-09-16.txt', 'boletin': '22032', 'fecha': '2025-09-16', 'op': 'SA100051526', 'doc_index': 2, 'chars': 5170, 'created_at': '2025-10-07T02:34:33.408934Z'}, {'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text_op/2025/22032_OPSA100051527_2025-09-16.txt', 'boletin': '22032', 'fecha': '2025-09-16', 'op': 'SA100051527', 'doc_index': 3, 'chars': 3815, 'created_at': '2025-10-07T02:34:33.414457Z'}, {'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text_op/2025/22032_OP100128356_2025-09-16.txt', 'boletin': '22032', 'fecha': '2025-09-16', 'op': '100128356', 'doc_index': 4, 'chars': 2738, 'created_at': '2025-10-07T02:34:33.419629Z'}, {'pdf_key': 'boletines/2025/22032_2025-09-16.pdf', 'txt_key': 'rag/text_op/2025/22032_OP100128351_2025-09-16.txt', 'boletin': '22032', 'fecha': '2025-09-16', 'op': '100128351', 'doc_index': 5, 'chars': 3502, 'created_at': '2025-10-07T02:34:33.424723Z'}]}
+[2025-10-07T02:34:41.679+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG_completo, task_id=extract_texts_by_op, execution_date=20251007T022617, start_date=20251007T023433, end_date=20251007T023441
+[2025-10-07T02:34:41.727+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-07T02:34:41.735+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

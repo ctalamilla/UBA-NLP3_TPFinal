@@ -1,0 +1,51 @@
+[2025-10-07T03:11:18.436+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T03:11:18.440+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [queued]>
+[2025-10-07T03:11:18.440+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-07T03:11:18.445+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): classify_op_texts> on 2025-10-07 02:26:17+00:00
+[2025-10-07T03:11:18.452+0000] {standard_task_runner.py:57} INFO - Started process 22254 to run task
+[2025-10-07T03:11:18.455+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'classify_op_texts', 'manual__2025-10-07T02:26:17+00:00', '--job-id', '310', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpmazy2fy8']
+[2025-10-07T03:11:18.458+0000] {standard_task_runner.py:85} INFO - Job 310: Subtask classify_op_texts
+[2025-10-07T03:11:18.498+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.classify_op_texts manual__2025-10-07T02:26:17+00:00 [running]> on host a21c1baf7ef9
+[2025-10-07T03:11:18.533+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='classify_op_texts' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T02:26:17+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T02:26:17+00:00'
+[2025-10-07T03:11:18.534+0000] {logging_mixin.py:151} INFO - 🔎 Cargando pipeline zero-shot: hackathon-pln-es/bertin-roberta-base-zeroshot-esnli (device=-1)
+[2025-10-07T03:12:30.662+0000] {log.py:232} WARNING - Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+[2025-10-07T03:12:31.194+0000] {log.py:232} WARNING - Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+[2025-10-07T03:13:03.403+0000] {logging_mixin.py:151} INFO - … 10/1222 clasificados
+[2025-10-07T03:13:34.270+0000] {logging_mixin.py:151} INFO - … 20/1222 clasificados
+[2025-10-07T03:14:06.081+0000] {logging_mixin.py:151} INFO - … 30/1222 clasificados
+[2025-10-07T03:14:36.480+0000] {logging_mixin.py:151} INFO - … 40/1222 clasificados
+[2025-10-07T03:15:07.346+0000] {logging_mixin.py:151} INFO - … 50/1222 clasificados
+[2025-10-07T03:15:38.086+0000] {logging_mixin.py:151} INFO - … 60/1222 clasificados
+[2025-10-07T03:16:07.224+0000] {logging_mixin.py:151} INFO - … 70/1222 clasificados
+[2025-10-07T03:16:37.388+0000] {logging_mixin.py:151} INFO - … 80/1222 clasificados
+[2025-10-07T03:17:08.279+0000] {logging_mixin.py:151} INFO - … 90/1222 clasificados
+[2025-10-07T03:17:40.328+0000] {logging_mixin.py:151} INFO - … 100/1222 clasificados
+[2025-10-07T03:18:12.293+0000] {logging_mixin.py:151} INFO - … 110/1222 clasificados
+[2025-10-07T03:18:42.968+0000] {logging_mixin.py:151} INFO - … 120/1222 clasificados
+[2025-10-07T03:19:13.662+0000] {logging_mixin.py:151} INFO - … 130/1222 clasificados
+[2025-10-07T03:19:47.437+0000] {logging_mixin.py:151} INFO - … 140/1222 clasificados
+[2025-10-07T03:20:16.445+0000] {logging_mixin.py:151} INFO - … 150/1222 clasificados
+[2025-10-07T03:20:49.411+0000] {logging_mixin.py:151} INFO - … 160/1222 clasificados
+[2025-10-07T03:21:21.403+0000] {logging_mixin.py:151} INFO - … 170/1222 clasificados
+[2025-10-07T03:21:52.227+0000] {logging_mixin.py:151} INFO - … 180/1222 clasificados
+[2025-10-07T03:22:21.662+0000] {logging_mixin.py:151} INFO - … 190/1222 clasificados
+[2025-10-07T03:22:52.676+0000] {logging_mixin.py:151} INFO - … 200/1222 clasificados
+[2025-10-07T03:23:22.408+0000] {logging_mixin.py:151} INFO - … 210/1222 clasificados
+[2025-10-07T03:23:53.066+0000] {logging_mixin.py:151} INFO - … 220/1222 clasificados
+[2025-10-07T03:24:23.022+0000] {logging_mixin.py:151} INFO - … 230/1222 clasificados
+[2025-10-07T03:24:51.866+0000] {logging_mixin.py:151} INFO - … 240/1222 clasificados
+[2025-10-07T03:25:22.133+0000] {logging_mixin.py:151} INFO - … 250/1222 clasificados
+[2025-10-07T03:25:54.630+0000] {logging_mixin.py:151} INFO - … 260/1222 clasificados
+[2025-10-07T03:26:26.031+0000] {logging_mixin.py:151} INFO - … 270/1222 clasificados
+[2025-10-07T03:26:56.373+0000] {logging_mixin.py:151} INFO - … 280/1222 clasificados
+[2025-10-07T03:27:00.924+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-10-07T03:27:00.926+0000] {process_utils.py:131} INFO - Sending 15 to group 22254. PIDs of all processes in the group: [22254]
+[2025-10-07T03:27:00.927+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 22254
+[2025-10-07T03:27:00.928+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-10-07T03:27:00.928+0000] {logging_mixin.py:151} INFO - ⚠️ Error en rag/text_op/2025/22035_OP100128464_2025-09-19.txt: Task received SIGTERM signal
+[2025-10-07T03:27:24.999+0000] {logging_mixin.py:151} INFO - … 290/1222 clasificados
+[2025-10-07T03:27:54.261+0000] {logging_mixin.py:151} INFO - … 300/1222 clasificados
+[2025-10-07T03:28:00.938+0000] {process_utils.py:149} WARNING - process psutil.Process(pid=22254, name='airflow task ru', status='running', started='03:11:18') did not respond to SIGTERM. Trying SIGKILL
+[2025-10-07T03:28:00.943+0000] {process_utils.py:86} INFO - Sending the signal 9 to group 22254
+[2025-10-07T03:28:00.996+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=22254, name='airflow task ru', status='terminated', exitcode=<Negsignal.SIGKILL: -9>, started='03:11:18') (22254) terminated with exit code -9
+[2025-10-07T03:28:00.997+0000] {standard_task_runner.py:172} ERROR - Job 310 was killed before it finished (likely due to running out of memory)

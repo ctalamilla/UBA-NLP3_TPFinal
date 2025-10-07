@@ -107,11 +107,7 @@ def _slide_merge(sents: List[str], max_tok: int, overlap: int) -> List[str]:
 
 def chunk_text(text: str, max_tokens: int = 200, overlap: int = 60) -> List[str]:
     """
-    Chunking:
-      - target ~200 tokens por chunk
-      - solapamiento ~60 tokens
-      - descarta chunks < 20 tokens
-      - recorta > 220 tokens
+    Chunking mejorado para preservar más texto
     """
     if not text:
         return []
@@ -121,10 +117,13 @@ def chunk_text(text: str, max_tokens: int = 200, overlap: int = 60) -> List[str]
         return []
     chunks = _slide_merge(sents, max_tok=max_tokens, overlap=overlap)
 
-    # filtro final de longitud
+    # filtro final MENOS restrictivo
     out: List[str] = []
     for ch in chunks:
         nt = _count_tokens(ch)
-        if 20 <= nt <= 220:
+        # ⬇️ Cambiar estos límites:
+        # ANTES: if 20 <= nt <= 220:
+        # AHORA:
+        if 20 <= nt <= max_tokens + 50:  # Permite hasta 450 tokens si max_tokens=400
             out.append(ch)
     return out
