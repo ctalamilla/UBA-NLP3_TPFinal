@@ -1,4 +1,4 @@
-#fastapi_app/pipeline.py
+# fastapi_app/pipeline.py
 from __future__ import annotations
 import os
 import json
@@ -128,9 +128,10 @@ def answer_llm(
     client: Optional[OpenAI],
     query: str,
     context_chunks: List[str],
-    summary: str
+    summary: str,
+    metadata_list: Optional[List[Dict[str, Any]]] = None
 ) -> str:
-    """Genera respuesta final usando LLM y el contexto"""
+    """Genera respuesta final usando LLM con contexto enriquecido y metadatos estructurados"""
     if not context_chunks:
         return "No hay contexto disponible."
     
@@ -139,10 +140,34 @@ def answer_llm(
         return "No está especificado en las fuentes."
     
     ctx = "\n\n".join(context_chunks)[:6000]
+    
+    # Construir sección de metadatos estructurados
+    metadata_section = ""
+    if metadata_list:
+        metadata_section = "\n\nMETADATOS ESTRUCTURADOS DE LAS FUENTES:\n"
+        for i, meta in enumerate(metadata_list, 1):
+            meta_info = []
+            if meta.get("boletin"):
+                meta_info.append(f"Boletín: {meta['boletin']}")
+            if meta.get("fecha"):
+                meta_info.append(f"Fecha: {meta['fecha']}")
+            if meta.get("op"):
+                meta_info.append(f"OP: {meta['op']}")
+            if meta.get("source"):
+                meta_info.append(f"PDF: {meta['source']}")
+            
+            if meta_info:
+                metadata_section += f"Fuente {i}: {' | '.join(meta_info)}\n"
+    
     prompt = (
-        "Usá SOLO la información del CONTEXTO para responder la CONSULTA de forma breve y clara.\n"
+        "Usá SOLO la información del CONTEXTO y los METADATOS para responder la CONSULTA.\n"
+        "Los metadatos te dan información precisa sobre boletines, fechas y números de OP.\n"
+        "Incluí referencias específicas en tu respuesta (ej: 'Según el Boletín X del fecha Y...').\n"
         "Si la respuesta no está en el contexto, decí 'No está especificado en las fuentes.'\n\n"
-        f"CONSULTA: {query}\n\nRESUMEN CONTEXTO:\n{summary}\n\nCONTEXTO COMPLEMENTARIO:\n{ctx}\n"
+        f"CONSULTA: {query}\n"
+        f"{metadata_section}\n"
+        f"RESUMEN CONTEXTO:\n{summary}\n\n"
+        f"CONTEXTO COMPLEMENTARIO:\n{ctx}\n"
     )
     
     try:
@@ -280,11 +305,10 @@ class RAGPipeline:
             logger.error(f"❌ Error cargando BM25: {e}")
             raise
 
-        # Verificar Pinecone
-        logger.info(f"🔍 Verificando índice Pinecone: {self.pinecone_index}")
         # Verificar Pinecone (dim configurable por ENV)
+        logger.info(f"🔍 Verificando índice Pinecone: {self.pinecone_index}")
         try:
-            emb_dim = int(os.getenv("EMB_DIM", "384"))  # <- tu encoder actual es de 384
+            emb_dim = int(os.getenv("EMB_DIM", "384"))
             ensure_index(index_name=self.pinecone_index, dim=emb_dim, metric="cosine")
             logger.info(f"✅ Índice Pinecone listo (dim={emb_dim})")
         except Exception as e:
@@ -347,118 +371,150 @@ class RAGPipeline:
             return []
 
     def build_candidates_from_pages(
-            self,
-            query: str,
-            page_ids: List[str],
-            per_page: int = 3
-        ) -> List[Tuple[str, str, Dict[str, Any]]]:
-            #"""Construye lista de candidatos desde las páginas y propaga TODO el metadata original."""
-            out: List[Tuple[str, str, Dict[str, Any]]] = []
-            q_tokens = set((query or "").lower().split())
+        self,
+        query: str,
+        page_ids: List[str],
+        per_page: int = 3
+    ) -> List[Tuple[str, str, Dict[str, Any]]]:
+        """Construye lista de candidatos desde las páginas con scoring mejorado y propagación completa de metadata"""
+        out: List[Tuple[str, str, Dict[str, Any]]] = []
+        q_tokens = set((query or "").lower().split())
+        
+        # Detectar términos clave (nombres propios, números)
+        query_words = (query or "").split()
+        key_terms = set()
+        for w in query_words:
+            cleaned = w.strip('.,;:¿?¡!').lower()
+            # Es clave si: empieza con mayúscula, tiene dígitos, o es un apellido común
+            if (w and w[0].isupper()) or any(c.isdigit() for c in w) or len(cleaned) > 6:
+                key_terms.add(cleaned)
+        
+        logger.debug(f"Términos clave detectados: {key_terms}")
+        
+        for pid in page_ids:
+            k = page_id_to_ndjson_key(self.chunks_prefix, pid)
+            
+            try:
+                recs = read_ndjson_lines(self.s3, self.bucket, k)
+            except self.s3.exceptions.NoSuchKey:
+                logger.warning(f"⚠️ NDJSON no encontrado: {k}")
+                continue
+            except Exception as e:
+                logger.error(f"❌ Error leyendo {k}: {e}")
+                continue
 
-            for pid in page_ids:
-                k = page_id_to_ndjson_key(self.chunks_prefix, pid)
-
-                try:
-                    recs = read_ndjson_lines(self.s3, self.bucket, k)
-                except self.s3.exceptions.NoSuchKey:
-                    logger.warning(f"⚠️ NDJSON no encontrado: {k}")
+            scored: List[Tuple[float, Dict[str, Any]]] = []
+            for r in recs:
+                text = (r.get("text") or "").strip()
+                if not text:
                     continue
-                except Exception as e:
-                    logger.error(f"❌ Error leyendo {k}: {e}")
+                toks = set(text.lower().split())
+                
+                # Scoring con pesos:
+                # - Términos clave: 3.0 puntos
+                # - Términos normales: 1.0 punto
+                score = 0.0
+                for qt in q_tokens:
+                    if qt in toks:
+                        score += 3.0 if qt in key_terms else 1.0
+                
+                scored.append((score, r))
+
+            scored.sort(key=lambda x: x[0], reverse=True)
+            taken = 0
+            
+            for overlap_score, r in scored:
+                if taken >= per_page:
+                    break
+                
+                txt = (r.get("text") or "").strip()
+                if not txt:
                     continue
 
-                # Prioriza por intersección de tokens
-                scored: List[Tuple[float, Dict[str, Any]]] = []
-                for r in recs:
-                    text = (r.get("text") or "").strip()
-                    if not text:
-                        continue
-                    toks = set(text.lower().split())
-                    score = float(len(q_tokens.intersection(toks)))
-                    scored.append((score, r))
+                cid = r.get("id") or r.get("chunk_id")
+                if not cid:
+                    doc_id = r.get("doc_id") or pid.rsplit("_p", 1)[0]
+                    local = r.get("chunk_index")
+                    cpage = r.get("page") or 1
+                    if local is None:
+                        local = taken
+                    cid = f"{doc_id}::p{cpage}::{local}"
 
-                scored.sort(key=lambda x: x[0], reverse=True)
-                taken = 0
-
-                for _, r in scored:
-                    if taken >= per_page:
-                        break
-
-                    txt = (r.get("text") or "").strip()
-                    if not txt:
-                        continue
-
-                    cid = r.get("id") or r.get("chunk_id")
-                    if not cid:
-                        doc_id = r.get("doc_id") or pid.rsplit("_p", 1)[0]
-                        local = r.get("chunk_index")
-                        cpage = r.get("page") or 1
-                        if local is None:
-                            local = taken
-                        cid = f"{doc_id}::p{cpage}::{local}"
-
-                    # ⬇️ Propaga TODO el metadata original, excepto 'text' e 'id'
-                    meta = {kk: vv for kk, vv in r.items() if kk not in ("text", "id")}
-                    # compat con claves clásicas
-                    meta.setdefault("source", r.get("source"))
-                    meta.setdefault("page", r.get("page"))
-                    meta.setdefault("doc_id", r.get("doc_id") or cid.split("::", 1)[0])
-                    # muy útil para trazabilidad
-                    meta["ndjson_key"] = k
-
-                    out.append((cid, txt, meta))
-                    taken += 1
-
-            # Deduplicar por chunk_id (por si vino repetido de BM25/Vector)
-            seen = set()
-            dedup: List[Tuple[str, str, Dict[str, Any]]] = []
-            for cid, txt, meta in out:
-                if cid in seen:
-                    continue
-                seen.add(cid)
-                dedup.append((cid, txt, meta))
-
-            logger.info(f"📄 Construidos {len(dedup)} candidatos (dedup) desde {len(page_ids)} páginas")
-            return dedup
-
+                # Propagar TODO el metadata original, excepto 'text' e 'id'
+                meta = {kk: vv for kk, vv in r.items() if kk not in ("text", "id")}
+                
+                # Asegurar campos clásicos
+                meta.setdefault("source", r.get("source"))
+                meta.setdefault("page", r.get("page"))
+                meta.setdefault("doc_id", r.get("doc_id") or cid.split("::", 1)[0])
+                meta.setdefault("boletin", r.get("boletin"))
+                meta.setdefault("fecha", r.get("fecha"))
+                meta.setdefault("op", r.get("op"))
+                
+                # Añadir trazabilidad
+                meta["ndjson_key"] = k
+                
+                out.append((cid, txt, meta))
+                taken += 1
+        
+        # Deduplicar por chunk_id
+        seen = set()
+        dedup: List[Tuple[str, str, Dict[str, Any]]] = []
+        for cid, txt, meta in out:
+            if cid in seen:
+                continue
+            seen.add(cid)
+            dedup.append((cid, txt, meta))
+        
+        logger.info(f"📄 Construidos {len(dedup)} candidatos (dedup) desde {len(page_ids)} páginas")
+        return dedup
 
     def run(
         self,
         query: str,
         k_bm25: int = 50,
         k_vec: int = 50,
-        k_final: int = 6,
-        per_page: int = 3,
+        k_final: int = 10,
+        per_page: int = 5,
         rrf_k: float = 60.0,
         do_rerank: bool = False,
         debug: bool = False
     ) -> Dict[str, Any]:
         """Ejecuta el pipeline RAG completo"""
-
+        
         # Overridables por ENV (para tunear sin redeploy)
         k_bm25 = int(os.getenv("RAG_K_BM25", k_bm25))
         k_vec = int(os.getenv("RAG_K_VEC", k_vec))
         k_final = int(os.getenv("RAG_K_FINAL", k_final))
         per_page = int(os.getenv("RAG_PER_PAGE", per_page))
         rrf_k = float(os.getenv("RAG_RRF_K", rrf_k))
-
+        
         logger.info(f"🚀 Ejecutando RAG para query: '{query[:100]}...'")
         logger.info(f"Params => k_bm25={k_bm25} k_vec={k_vec} k_final={k_final} per_page={per_page} rrf_k={rrf_k} rerank={do_rerank}")
-
-        # 1) Búsqueda híbrida
+        
+        # 1. Búsqueda híbrida
+        logger.info(f"🔍 BM25 top-{k_bm25}")
         bm25_pages = self.bm25_best_pages(query, top_k=k_bm25)
+        
+        logger.info(f"🔍 Vector top-{k_vec}")
         pc_pages = self.pinecone_best_pages(query, top_k=k_vec)
-
-        # 2) Fusión RRF (si Pinecone trae vacío, usar BM25 directly)
+        
+        # 2. Fusión RRF
         if pc_pages:
-            fused_pages = rrf_combine(bm25_pages, pc_pages, k=rrf_k, top_k=max(k_final * 3, 20))
+            logger.info("🔀 Aplicando RRF fusion")
+            fused_pages = rrf_combine(
+                bm25_pages,
+                pc_pages,
+                k=rrf_k,
+                top_k=max(k_final * 3, 20)
+            )
         else:
+            logger.warning("⚠️ Pinecone vacío, usando solo BM25")
             fused_pages = bm25_pages[:max(k_final * 3, 20)]
-        logger.info(f"🔀 Páginas fusionadas: {len(fused_pages)}")
 
-        # 3) Construir candidatos (propaga metadata)
+        # 3. Construir candidatos
         candidates = self.build_candidates_from_pages(query, fused_pages, per_page=per_page)
+        
         if not candidates:
             logger.warning("⚠️ No se encontraron candidatos")
             return {
@@ -475,22 +531,57 @@ class RAGPipeline:
                 } if debug else None
             }
 
-        # 4) Rerank opcional
+        # 4. Rerank
         if do_rerank:
             ranked = optional_rerank(query, candidates)
         else:
             ranked = [(cid, txt, meta, 0.0) for (cid, txt, meta) in candidates]
-
+        
         final = ranked[:k_final]
-        ctx_texts = [t for _, t, _, _ in final]
+        
+        # 5. Enriquecer chunks con metadatos para el LLM
+        ctx_enriched = []
+        metadata_list = []
+        for cid, txt, meta, score in final:
+            # Guardar metadatos estructurados
+            metadata_list.append(meta)
+            
+            # Construir encabezado con metadatos para el contexto textual
+            metadata_header = []
+            if meta.get("boletin"):
+                metadata_header.append(f"Boletín N° {meta['boletin']}")
+            if meta.get("fecha"):
+                metadata_header.append(f"Fecha: {meta['fecha']}")
+            if meta.get("op"):
+                metadata_header.append(f"OP: {meta['op']}")
+            
+            # Si hay classification con label
+            if meta.get("classification") and isinstance(meta["classification"], dict):
+                label = meta["classification"].get("label")
+                if label and label != "Clasificación incierta":
+                    metadata_header.append(f"Categoría: {label}")
+            
+            # Armar chunk enriquecido
+            if metadata_header:
+                header = "[" + " | ".join(metadata_header) + "]"
+                enriched = f"{header}\n{txt}"
+            else:
+                enriched = txt
+            
+            ctx_enriched.append(enriched)
+        
         logger.info(f"✅ {len(final)} chunks finales seleccionados")
 
-        # 5) LLM
-        summary = rag_summary_llm(self.oa, query, ctx_texts, max_chars=500)
-        answer = answer_llm(self.oa, query, ctx_texts, summary)
-        verification = verificar_respuesta_llm(self.oa, query, answer, ctx_texts)
+        # 6. Generación LLM con metadatos estructurados
+        logger.info("🤖 Generando respuesta con LLM")
+        summary = rag_summary_llm(self.oa, query, ctx_enriched, max_chars=500)
+        answer = answer_llm(self.oa, query, ctx_enriched, summary, metadata_list=metadata_list)
+        
+        # 7. Verificación de respuesta
+        logger.info("🔍 Verificando respuesta contra documentos")
+        verification = verificar_respuesta_llm(self.oa, query, answer, ctx_enriched)
 
-        # 6) Payload (ahora incluye 'metadata' completo en cada resultado)
+        # 8. Construir respuesta con metadata completo
         payload = {
             "query": query,
             "summary": summary,
@@ -501,18 +592,20 @@ class RAGPipeline:
                     "chunk_id": cid,
                     "score": float(score),
                     "text": txt,
+                    # Campos individuales para compatibilidad
                     "source": (meta or {}).get("source"),
                     "page": (meta or {}).get("page"),
                     "doc_id": (meta or {}).get("doc_id"),
                     "boletin": (meta or {}).get("boletin"),
                     "fecha": (meta or {}).get("fecha"),
                     "op": (meta or {}).get("op"),
-                    "metadata": meta or {},   # ⬅️ aquí viaja TODO (classification, txt_key, ndjson_key, etc.)
+                    # Campo metadata completo con TODO
+                    "metadata": meta or {},
                 }
                 for (cid, txt, meta, score) in final
             ],
         }
-
+        
         if debug:
             payload["debug"] = {
                 "bm25_pages": bm25_pages[:10],
@@ -521,6 +614,6 @@ class RAGPipeline:
                 "candidates_count": len(candidates),
                 "rerank_applied": do_rerank,
             }
-
-        logger.info("✅ Pipeline completado")
+        
+        logger.info(f"✅ Pipeline completado")
         return payload
