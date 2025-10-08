@@ -10,23 +10,63 @@ from typing import Dict, Any, List, Optional
 from tasks.s3_utilities import (
     list_keys, read_text, download_to_tmp, upload_json, exists
 )
-from tasks.qrels_utils import load_qrels             # ← helper para leer qrels
-from tasks import metrics as METR                    # ← tus métricas (pred_ids/rel_ids)
+from tasks.qrels_utils import load_qrels        # qrels: {query: {doc_id: rel_int}}
+from tasks import metrics as METR               # average_precision_at_k, ndcg_at_k, recall_at_k, mrr
 
 
+# ---------------------------
+# Helpers de normalización
+# ---------------------------
 def _safe_qname(q: str) -> str:
     return re.sub(r"[^A-Za-z0-9_-]+", "_", (q or "").strip())[:60] or "query"
 
-
-def _base_doc_id(chunk_or_doc_id: str) -> str:
-    """
-    Los resultados de fusión vienen por chunk (id con '::').
-    Para evaluar a nivel documento, tomamos la parte base antes de '::'.
-    Si ya es doc_id simple, se devuelve tal cual.
-    """
-    if not chunk_or_doc_id:
+def _stem(x: str) -> str:
+    if not x:
         return ""
-    return chunk_or_doc_id.split("::", 1)[0]
+    base = os.path.basename(x)
+    return os.path.splitext(base)[0]
+
+def _strip_page_suffix(x: str) -> str:
+    # quita sufijo _pN si existe
+    return re.sub(r"_p\d+$", "", x or "")
+
+def _norm_doc_id(x: str) -> str:
+    """
+    Normaliza IDs a formato base:
+    - quita ruta y extensión
+    - quita sufijo de página (_pN)
+    Ej: 'boletines/2025/22043_2025-10-01.pdf' → '22043_2025-10-01'
+        '22043_2025-10-01_p1'                → '22043_2025-10-01'
+    """
+    return _strip_page_suffix(_stem(x or ""))
+
+def _pred_doc_id_from_result(r: Dict[str, Any]) -> str:
+    """
+    Extrae el mejor doc_id "base" desde un resultado de fusión.
+    Soporta varias variantes:
+      - pdf_key (preferida, viene con ruta .pdf)
+      - doc_id (tipo 22043_2025-10-01_p1)
+      - chunk_id (tomamos la parte base antes de '::' y normalizamos)
+      - page_id (idem doc_id)
+    """
+    pdf_key = r.get("pdf_key")
+    if pdf_key:
+        return _norm_doc_id(pdf_key)
+
+    doc_id = r.get("doc_id")
+    if doc_id:
+        return _norm_doc_id(doc_id)
+
+    chunk_id = r.get("chunk_id")
+    if chunk_id:
+        base = (chunk_id or "").split("::", 1)[0]
+        return _norm_doc_id(base)
+
+    page_id = r.get("page_id")
+    if page_id:
+        return _norm_doc_id(page_id)
+
+    return ""
 
 
 def _pick_latest_fusion_key(keys: List[str], query: Optional[str]) -> Optional[str]:
@@ -47,6 +87,9 @@ def _pick_latest_fusion_key(keys: List[str], query: Optional[str]) -> Optional[s
     return keys[-1]
 
 
+# ---------------------------
+# Task principal
+# ---------------------------
 def task_eval_fusion(
     bucket_name: str,
     aws_conn_id: str,
@@ -79,8 +122,15 @@ def task_eval_fusion(
     fusion_obj = json.loads(fusion_blob)
     fusion_query = (fusion_obj.get("query") or "").strip()
     results = fusion_obj.get("results", [])
-    ranked_chunk_ids = [r.get("chunk_id") for r in results if r.get("chunk_id")]
-    ranked_doc_ids = [_base_doc_id(cid) for cid in ranked_chunk_ids]  # pred_ids a nivel documento
+
+    # Predicciones normalizadas (doc-level)
+    pred_ids: List[str] = []
+    seen: set = set()
+    for r in results:
+        did = _pred_doc_id_from_result(r)
+        if did and did not in seen:
+            seen.add(did)
+            pred_ids.append(did)
 
     # 3) Cargar qrels
     local_qrels = download_to_tmp(bucket=bucket_name, key=qrels_key, aws_conn_id=aws_conn_id)
@@ -99,10 +149,17 @@ def task_eval_fusion(
 
     rels_map: Dict[str, int] = qrels[q_key]  # {doc_id: rel_int (>0 = relevante)}
 
-    # 4) Calcular métricas con TU API (pred_ids + rel_ids + k)
-    pred_ids = ranked_doc_ids
-    rel_ids = {d for d, r in rels_map.items() if r > 0}
+    # 4) Normalizar TAMBIÉN los doc_ids del qrels
+    rel_ids = { _norm_doc_id(d) for d, rel in rels_map.items() if rel and int(rel) > 0 }
 
+    # Debug opcional
+    if os.getenv("EVAL_DEBUG", "0") == "1":
+        inter = set(pred_ids) & rel_ids
+        print(f"pred_ids (norm) top10: {pred_ids[:10]}")
+        print(f"rel_ids  (norm) top10: {sorted(list(rel_ids))[:10]}")
+        print(f"intersection size: {len(inter)}  -> {sorted(list(inter))[:10]}")
+
+    # 5) Calcular métricas
     metrics_out: Dict[str, Any] = {
         "query": q_key,
         "fusion_file": sel_key,
@@ -121,12 +178,13 @@ def task_eval_fusion(
     metrics_out["Recall@k"] = recall_at
     metrics_out["MRR"]      = mrr_value
 
-    # 5) Subir métricas a MinIO
+    # 6) Subir métricas a MinIO
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     sq = _safe_qname(q_key)
     out_key = f"{metrics_prefix.rstrip('/')}/fusion_eval_{sq}_{ts}.json"
     upload_json(bucket=bucket_name, key=out_key, obj=metrics_out, aws_conn_id=aws_conn_id)
 
+    # Resumen en logs
     print("✅ Métricas fusión:")
     for k in ks:
         print(f"  k={k:>2}  AP={ap_at[k]:.4f}  nDCG={ndcg_at[k]:.4f}  Recall={recall_at[k]:.4f}")

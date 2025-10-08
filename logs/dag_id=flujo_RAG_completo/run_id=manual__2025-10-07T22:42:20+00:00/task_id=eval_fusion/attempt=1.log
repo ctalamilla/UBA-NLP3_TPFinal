@@ -1,0 +1,36 @@
+[2025-10-08T23:07:42.574+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.eval_fusion manual__2025-10-07T22:42:20+00:00 [queued]>
+[2025-10-08T23:07:42.577+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.eval_fusion manual__2025-10-07T22:42:20+00:00 [queued]>
+[2025-10-08T23:07:42.577+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-10-08T23:07:42.582+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): eval_fusion> on 2025-10-07 22:42:20+00:00
+[2025-10-08T23:07:42.589+0000] {standard_task_runner.py:57} INFO - Started process 68014 to run task
+[2025-10-08T23:07:42.593+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'eval_fusion', 'manual__2025-10-07T22:42:20+00:00', '--job-id', '363', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpkxtb3rma']
+[2025-10-08T23:07:42.596+0000] {standard_task_runner.py:85} INFO - Job 363: Subtask eval_fusion
+[2025-10-08T23:07:42.628+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.eval_fusion manual__2025-10-07T22:42:20+00:00 [running]> on host 5586102090b0
+[2025-10-08T23:07:42.695+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='eval_fusion' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T22:42:20+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T22:42:20+00:00'
+[2025-10-08T23:07:42.700+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-08T23:07:42.702+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:07:42.703+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-08T23:07:42.704+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:07:42.707+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-08T23:07:42.851+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:07:42.852+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:07:43.255+0000] {logging_mixin.py:151} INFO - 📝 Evaluando fusión: s3://respaldo2/rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251008_225849.json
+[2025-10-08T23:07:43.256+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:07:43.256+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:07:43.310+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:07:43.311+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:07:43.366+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:07:43.366+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:07:43.414+0000] {logging_mixin.py:151} INFO - ✅ Métricas fusión:
+[2025-10-08T23:07:43.415+0000] {logging_mixin.py:151} INFO -   k= 1  AP=0.0000  nDCG=0.0000  Recall=0.0000
+[2025-10-08T23:07:43.415+0000] {logging_mixin.py:151} INFO -   k= 3  AP=0.0000  nDCG=0.0000  Recall=0.0000
+[2025-10-08T23:07:43.415+0000] {logging_mixin.py:151} INFO -   k= 5  AP=0.0000  nDCG=0.0000  Recall=0.0000
+[2025-10-08T23:07:43.415+0000] {logging_mixin.py:151} INFO -   k=10  AP=0.0000  nDCG=0.0000  Recall=0.0000
+[2025-10-08T23:07:43.415+0000] {logging_mixin.py:151} INFO -   MRR=0.0000
+[2025-10-08T23:07:43.416+0000] {logging_mixin.py:151} INFO - ⬆️ Subidas a s3://respaldo2/rag/metrics/2025/fusion_eval_contrataci_n_p_blica_vial_20251008_230743.json
+[2025-10-08T23:07:43.416+0000] {python.py:194} INFO - Done. Returned value was: {'out_key': 'rag/metrics/2025/fusion_eval_contrataci_n_p_blica_vial_20251008_230743.json', 'k': [1, 3, 5, 10], 'metrics': {'query': 'contratación pública vial', 'fusion_file': 'rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251008_225849.json', 'k': [1, 3, 5, 10], 'total_rel': 4, 'generated_at': '2025-10-08T23:07:43.365548Z', 'AP@k': {1: 0.0, 3: 0.0, 5: 0.0, 10: 0.0}, 'nDCG@k': {1: 0.0, 3: 0.0, 5: 0.0, 10: 0.0}, 'Recall@k': {1: 0.0, 3: 0.0, 5: 0.0, 10: 0.0}, 'MRR': 0.0}}
+[2025-10-08T23:07:43.434+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG_completo, task_id=eval_fusion, execution_date=20251007T224220, start_date=20251008T230742, end_date=20251008T230743
+[2025-10-08T23:07:43.469+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-08T23:07:43.485+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

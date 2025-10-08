@@ -1,0 +1,65 @@
+[2025-10-08T23:19:02.373+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flujo_RAG_completo.fusion_query_demo manual__2025-10-07T22:42:20+00:00 [queued]>
+[2025-10-08T23:19:02.377+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flujo_RAG_completo.fusion_query_demo manual__2025-10-07T22:42:20+00:00 [queued]>
+[2025-10-08T23:19:02.378+0000] {taskinstance.py:1359} INFO - Starting attempt 9 of 9
+[2025-10-08T23:19:02.384+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): fusion_query_demo> on 2025-10-07 22:42:20+00:00
+[2025-10-08T23:19:02.392+0000] {standard_task_runner.py:57} INFO - Started process 68540 to run task
+[2025-10-08T23:19:02.396+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'flujo_RAG_completo', 'fusion_query_demo', 'manual__2025-10-07T22:42:20+00:00', '--job-id', '365', '--raw', '--subdir', 'DAGS_FOLDER/Ingestion_pipeline.py', '--cfg-path', '/tmp/tmpvj8h5la0']
+[2025-10-08T23:19:02.398+0000] {standard_task_runner.py:85} INFO - Job 365: Subtask fusion_query_demo
+[2025-10-08T23:19:02.430+0000] {task_command.py:415} INFO - Running <TaskInstance: flujo_RAG_completo.fusion_query_demo manual__2025-10-07T22:42:20+00:00 [running]> on host 5586102090b0
+[2025-10-08T23:19:02.475+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flujo_RAG_completo' AIRFLOW_CTX_TASK_ID='fusion_query_demo' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T22:42:20+00:00' AIRFLOW_CTX_TRY_NUMBER='9' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-07T22:42:20+00:00'
+[2025-10-08T23:19:02.477+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-10-08T23:19:02.478+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:02.478+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: AWS Connection (conn_id='minio_s3', conn_type='s3') has connection type 's3', which has been replaced by connection type 'aws'. Please update your connection to have `conn_type='aws'`.
+
+[2025-10-08T23:19:02.479+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:02.479+0000] {warnings.py:109} WARNING - <string>:8: AirflowProviderDeprecationWarning: Host minio specified in the connection is not used. Please, set it on extra['endpoint_url'] instead
+
+[2025-10-08T23:19:02.728+0000] {SentenceTransformer.py:208} INFO - Use pytorch device_name: cpu
+[2025-10-08T23:19:02.728+0000] {SentenceTransformer.py:216} INFO - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-10-08T23:19:07.522+0000] {discover_namespace_packages.py:12} INFO - Discovering subpackages in _NamespacePath(['/home/***/.local/lib/python3.8/site-packages/pinecone_plugins'])
+[2025-10-08T23:19:07.523+0000] {discover_plugins.py:9} INFO - Looking for plugins in pinecone_plugins.inference
+[2025-10-08T23:19:07.528+0000] {installation.py:10} INFO - Installing plugin inference into Pinecone
+[2025-10-08T23:19:14.333+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.334+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.402+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.403+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.450+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.450+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.496+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.497+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.545+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.546+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.719+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.719+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.760+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.760+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.798+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.799+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.836+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.836+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.873+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.873+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.912+0000] {base.py:73} INFO - Using connection ID 'minio_s3' for task execution.
+[2025-10-08T23:19:14.912+0000] {connection_wrapper.py:340} INFO - AWS Connection (conn_id='minio_s3', conn_type='s3') credentials retrieved from login and password.
+[2025-10-08T23:19:14.951+0000] {logging_mixin.py:151} INFO - ✅ Fusión RRF subida a s3://respaldo2/rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251008_231914.json  (top=10)
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO - 🔀 RRF para 'contratación pública vial'
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO - #01   22043_2025-10-01_p1  ->                     -  src=boletines/2025/22043_2025-10-01.pdf
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO -       CONTRATACIONES ABREVIADAS CONTRATACIÓN ABREVIADA N° 108-0204-CAB25 - ADJUDICACIÓN PROGRAMA ABASTECIMIENTO DIRECCIÓN GENERAL DE ABASTECIMIENTO Y MANTENIMIENTO MINISTERIO DE SALUD PÚBLICA Artículo 1o: con encuadre en el artículo 15 inc. i) de la Ley 8072 de Contrataciones de la Pro
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO - #02   22046_2025-10-06_p1  ->                     -  src=boletines/2025/22046_2025-10-06.pdf
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO -       SALTA, 30 de Septiembre de 2025 RESOLUCIÓN No 46 COORDINACIÓN ADMINISTRATIVA DE LA GOBERNACIÓN Expte. No 031-150161/2025-0 VISTO la solicitud efectuada por la Dirección General de Aviación Civil Salta; y, CONSIDERANDO: Que a tales efectos se promueve el llamado a licitación para 
+[2025-10-08T23:19:14.952+0000] {logging_mixin.py:151} INFO - #03   22044_2025-10-02_p1  ->                     -  src=boletines/2025/22044_2025-10-02.pdf
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO -       CONTRATACIONES ABREVIADAS CONTRATACIÓN ABREVIADA N° 48/25 - 2o LLAMADO - ADJUDICACIÓN PROGRAMA ABASTECIMIENTO DIRECCIÓN GENERAL DE ABASTECIMIENTO Y MANTENIMIENTO MINISTERIO DE SALUD PÚBLICA Artículo 1o: con encuadre en el artículo 15 inc. c) de la Ley 8072 de Contrataciones de la
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO - #04   22047_2025-10-07_p1  ->                     -  src=boletines/2025/22047_2025-10-07.pdf
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO -       CONTRATACIONES ABREVIADAS CONTRATACIÓN ABREVIADA N° 21/25 - ADJUDICACIÓN DIRECCIÓN GENERAL DE ABASTECIMIENTO Y MANTENIMIENTO DIVISIÓN PROVISIÓN SUBSIDIOS MINISTERIO DE SALUD PÚBLICA Artículo 1o: con encuadre en el artículo 15 inc. i) de la Ley 8072 de Contrataciones de la Provinc
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO - #05   22042_2025-09-30_p1  ->                     -  src=boletines/2025/22042_2025-09-30.pdf
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO -       su promulgación. Art. 7o.- Es Autoridad de Aplicación de la presente Ley el Ministerio de Salud Pública en coordinación con el Ministerio de Producción y Desarrollo Sustentable. Art. 8o.- El gasto que demande el cumplimiento de la presente Ley, se imputa a las partidas correspond
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO - #06   22045_2025-10-03_p1  ->                     -  src=boletines/2025/22045_2025-10-03.pdf
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO -       CONTRATACIONES ABREVIADAS CONTRATACIÓN ABREVIADA N° 17/25 - ADJUDICACIÓN PROGRAMA ABASTECIMIENTO - DIVISIÓN PROVISIÓN DE SUBSIDIOS DIRECCIÓN GENERAL DE ABASTECIMIENTO Y MANTENIMIENTO MINISTERIO DE SALUD PÚBLICA Artículo 1o: con encuadre en el artículo 15 inc. i) de la Ley 8072 de
+[2025-10-08T23:19:14.953+0000] {logging_mixin.py:151} INFO - #07   22032_2025-09-16_p1  ->                     -  src=-
+[2025-10-08T23:19:14.954+0000] {logging_mixin.py:151} INFO - #08   22034_2025-09-18_p1  ->                     -  src=-
+[2025-10-08T23:19:14.954+0000] {logging_mixin.py:151} INFO - #09   22036_2025-09-22_p1  ->                     -  src=-
+[2025-10-08T23:19:14.954+0000] {logging_mixin.py:151} INFO - #10   22037_2025-09-23_p1  ->                     -  src=-
+[2025-10-08T23:19:14.957+0000] {python.py:194} INFO - Done. Returned value was: {'out_key': 'rag/fusion/2025/fusion_contrataci_n_p_blica_vial_20251008_231914.json', 'count': 10}
+[2025-10-08T23:19:14.969+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flujo_RAG_completo, task_id=fusion_query_demo, execution_date=20251007T224220, start_date=20251008T231902, end_date=20251008T231914
+[2025-10-08T23:19:15.029+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-10-08T23:19:15.041+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
