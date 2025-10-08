@@ -46,7 +46,7 @@ with DAG(
         provide_context=True,
         params={
             "year": 2025,
-            "days": 14,  # ventana de 2 semanas
+            "days": 7,  # ventana de 2 semanas
             "bucket_name": "respaldo2",
             "prefix": "boletines/2025/",
             "aws_conn_id": "minio_s3",
