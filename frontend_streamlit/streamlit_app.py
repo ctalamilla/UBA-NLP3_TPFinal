@@ -194,7 +194,24 @@ with tabs[0]:
                                         if extracted.get("organismo"):
                                             st.markdown(f"- **Organismo:** {extracted['organismo']}")
                                         if extracted.get("personas"):
-                                            st.markdown(f"- **Personas:** {', '.join(extracted['personas'])}")
+                                            personas = extracted['personas']
+                                            # Manejar tanto lista de strings como lista de dicts
+                                            if personas and isinstance(personas[0], dict):
+                                                # Es lista de dicts con info completa
+                                                st.markdown("- **Personas:**")
+                                                for p in personas:
+                                                    nombre = p.get('nombre', 'N/A')
+                                                    cuil = p.get('cuil', '')
+                                                    domicilio = p.get('domicilio', '')
+                                                    persona_info = f"  - {nombre}"
+                                                    if cuil:
+                                                        persona_info += f" (CUIL: {cuil})"
+                                                    if domicilio:
+                                                        persona_info += f" - {domicilio}"
+                                                    st.markdown(persona_info)
+                                            else:
+                                                # Es lista simple de strings
+                                                st.markdown(f"- **Personas:** {', '.join(personas)}")
                                         if extracted.get("resumen"):
                                             st.markdown(f"- **Resumen:** {extracted['resumen']}")
                                 
@@ -387,4 +404,4 @@ with tabs[2]:
 
 # Footer
 st.divider()
-st.caption("🔎 RAG Boletín Oficial de Salta | v0.6.0")
+st.caption("🔎 RAG Boletín Oficial de Salta | v0.6.1")

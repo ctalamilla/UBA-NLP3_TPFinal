@@ -740,3 +740,199 @@
 [2025-10-08T00:53:31.916+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:53:31.916+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-10-08T00:53:31.922+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:53:31.922+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
 [2025-10-08T00:53:31.930+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.060 seconds
+[2025-10-08T00:54:02.180+0000] {processor.py:157} INFO - Started process (PID=12414) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:02.181+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:54:02.183+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:02.182+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:02.200+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:02.225+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:02.225+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:54:02.231+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:02.231+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:54:02.239+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.062 seconds
+[2025-10-08T00:54:32.497+0000] {processor.py:157} INFO - Started process (PID=12440) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:32.499+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:54:32.503+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:32.503+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:32.532+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:54:32.561+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:32.561+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:54:32.572+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:54:32.572+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:54:32.584+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.093 seconds
+[2025-10-08T00:55:02.752+0000] {processor.py:157} INFO - Started process (PID=12458) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:02.753+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:55:02.756+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:02.755+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:02.776+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:02.801+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:02.801+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:55:02.809+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:02.808+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:55:02.819+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.070 seconds
+[2025-10-08T00:55:33.108+0000] {processor.py:157} INFO - Started process (PID=12484) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:33.109+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:55:33.111+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:33.110+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:33.131+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:55:33.154+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:33.154+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:55:33.161+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:55:33.161+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:55:33.171+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T00:56:03.428+0000] {processor.py:157} INFO - Started process (PID=12510) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:03.429+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:56:03.432+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:03.431+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:03.455+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:03.481+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:03.481+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:56:03.490+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:03.490+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:56:03.502+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.077 seconds
+[2025-10-08T00:56:33.755+0000] {processor.py:157} INFO - Started process (PID=12535) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:33.756+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:56:33.758+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:33.758+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:33.776+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:56:33.805+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:33.805+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:56:33.819+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:56:33.819+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:56:33.834+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.082 seconds
+[2025-10-08T00:57:04.103+0000] {processor.py:157} INFO - Started process (PID=12553) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:04.105+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:57:04.106+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:04.106+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:04.125+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:04.149+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:04.149+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:57:04.156+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:04.155+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:57:04.166+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T00:57:34.418+0000] {processor.py:157} INFO - Started process (PID=12579) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:34.419+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:57:34.421+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:34.421+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:34.441+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:57:34.468+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:34.468+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:57:34.475+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:57:34.475+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:57:34.487+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.071 seconds
+[2025-10-08T00:58:04.735+0000] {processor.py:157} INFO - Started process (PID=12605) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:04.737+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:58:04.738+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:04.738+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:04.754+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:04.779+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:04.779+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:58:04.786+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:04.786+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:58:04.798+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T00:58:35.041+0000] {processor.py:157} INFO - Started process (PID=12632) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:35.043+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:58:35.045+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:35.045+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:35.065+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:58:35.093+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:35.093+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:58:35.102+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:58:35.102+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:58:35.114+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.076 seconds
+[2025-10-08T00:59:05.345+0000] {processor.py:157} INFO - Started process (PID=12650) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:05.346+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:59:05.347+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:05.347+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:05.363+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:05.385+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:05.385+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:59:05.392+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:05.392+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:59:05.402+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.059 seconds
+[2025-10-08T00:59:35.692+0000] {processor.py:157} INFO - Started process (PID=12676) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:35.694+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T00:59:35.697+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:35.697+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:35.719+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T00:59:35.745+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:35.745+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T00:59:35.753+0000] {logging_mixin.py:151} INFO - [2025-10-08T00:59:35.753+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T00:59:35.764+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.078 seconds
+[2025-10-08T01:00:06.003+0000] {processor.py:157} INFO - Started process (PID=12702) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:06.005+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:00:06.007+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:06.007+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:06.024+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:06.049+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:06.049+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:00:06.056+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:06.056+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:00:06.065+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T01:00:36.310+0000] {processor.py:157} INFO - Started process (PID=12728) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:36.312+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:00:36.314+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:36.314+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:36.335+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:00:36.363+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:36.363+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:00:36.372+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:00:36.372+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:00:36.382+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.075 seconds
+[2025-10-08T01:01:06.636+0000] {processor.py:157} INFO - Started process (PID=12746) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:06.637+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:01:06.639+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:06.639+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:06.657+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:06.683+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:06.683+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:01:06.690+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:06.689+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:01:06.699+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.067 seconds
+[2025-10-08T01:01:36.956+0000] {processor.py:157} INFO - Started process (PID=12771) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:36.958+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:01:36.960+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:36.960+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:36.980+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:01:37.006+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:37.006+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:01:37.014+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:01:37.014+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:01:37.025+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.072 seconds
+[2025-10-08T01:02:07.265+0000] {processor.py:157} INFO - Started process (PID=12797) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:07.267+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:02:07.269+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:07.269+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:07.285+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:07.308+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:07.308+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:02:07.314+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:07.314+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:02:07.325+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.062 seconds
+[2025-10-08T01:02:37.548+0000] {processor.py:157} INFO - Started process (PID=12823) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:37.550+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:02:37.553+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:37.553+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:37.576+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:02:37.608+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:37.608+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:02:37.619+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:02:37.619+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:02:37.632+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.088 seconds
+[2025-10-08T01:03:07.798+0000] {processor.py:157} INFO - Started process (PID=12841) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:07.799+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:03:07.801+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:07.801+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:07.845+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:07.880+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:07.880+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:03:07.891+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:07.891+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:03:07.903+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.108 seconds
+[2025-10-08T01:03:38.072+0000] {processor.py:157} INFO - Started process (PID=12866) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:38.074+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:03:38.077+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:38.077+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:38.102+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:03:38.130+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:38.130+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:03:38.140+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:03:38.140+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:03:38.152+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.084 seconds
+[2025-10-08T01:04:08.428+0000] {processor.py:157} INFO - Started process (PID=12892) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:08.430+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:04:08.432+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:08.432+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:08.448+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:08.471+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:08.471+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:04:08.478+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:08.478+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:04:08.488+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.061 seconds
+[2025-10-08T01:04:38.786+0000] {processor.py:157} INFO - Started process (PID=12910) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:38.788+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:04:38.790+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:38.790+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:38.807+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:04:38.831+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:38.830+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:04:38.837+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:04:38.837+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:04:38.847+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.063 seconds
+[2025-10-08T01:05:09.072+0000] {processor.py:157} INFO - Started process (PID=12936) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:09.073+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:05:09.075+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:09.075+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:09.100+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:09.134+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:09.134+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:05:09.142+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:09.142+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:05:09.154+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.085 seconds
+[2025-10-08T01:05:39.453+0000] {processor.py:157} INFO - Started process (PID=12962) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:39.455+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:05:39.457+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:39.457+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:39.475+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:05:39.498+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:39.498+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:05:39.504+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:05:39.504+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:05:39.513+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.064 seconds
+[2025-10-08T01:06:09.742+0000] {processor.py:157} INFO - Started process (PID=12989) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:09.744+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:06:09.746+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:09.746+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:09.762+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:09.785+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:09.785+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:06:09.791+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:09.791+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:06:09.800+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.061 seconds
+[2025-10-08T01:06:40.026+0000] {processor.py:157} INFO - Started process (PID=13007) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:40.027+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:06:40.029+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:40.029+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:40.046+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:06:40.071+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:40.071+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:06:40.078+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:06:40.078+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:06:40.087+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T01:07:10.317+0000] {processor.py:157} INFO - Started process (PID=13033) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:10.319+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:07:10.320+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:10.320+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:10.337+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:10.362+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:10.362+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:07:10.369+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:10.369+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:07:10.378+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.065 seconds
+[2025-10-08T01:07:40.625+0000] {processor.py:157} INFO - Started process (PID=13059) to work on /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:40.627+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/RAG_dag.py for tasks to queue
+[2025-10-08T01:07:40.630+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:40.630+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:40.646+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG']) retrieved from /opt/airflow/dags/RAG_dag.py
+[2025-10-08T01:07:40.670+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:40.670+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-08T01:07:40.676+0000] {logging_mixin.py:151} INFO - [2025-10-08T01:07:40.676+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG to None, run_after=None
+[2025-10-08T01:07:40.686+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/RAG_dag.py took 0.064 seconds
