@@ -218,6 +218,53 @@ with tabs[0]:
                                 # Metadata técnica
                                 st.markdown("**🔧 Metadata Técnica:**")
                                 st.json(metadata)
+            
+            # Performance Metrics (expander colapsado)
+            if data.get("performance"):
+                with st.expander("⚡ Métricas de Performance", expanded=False):
+                    perf = data["performance"]
+                    
+                    # Resumen en columnas
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("⏱️ Tiempo Total", f"{perf['total_time']:.2f}s")
+                    with col2:
+                        st.metric("🎫 Tokens", f"{perf['tokens']['total']:,}")
+                    with col3:
+                        st.metric("💰 Costo", f"${perf['cost']['total_usd']:.6f}")
+                    
+                    st.caption("---")
+                    
+                    # Breakdown con letra pequeña
+                    st.caption("**⏱️ Breakdown de Tiempos:**")
+                    breakdown = perf.get("breakdown", {})
+                    
+                    # Ordenar por tiempo (más lento primero)
+                    sorted_breakdown = sorted(
+                        breakdown.items(), 
+                        key=lambda x: x[1], 
+                        reverse=True
+                    )
+                    
+                    for key, time_val in sorted_breakdown:
+                        name = key.replace("_time", "").replace("_", " ").title()
+                        pct = (time_val / perf['total_time'] * 100) if perf['total_time'] > 0 else 0
+                        st.caption(f"• {name}: `{time_val:.3f}s` ({pct:.1f}%)")
+                    
+                    st.caption("---")
+                    
+                    # Tokens detallado
+                    st.caption("**🎫 Tokens Detallados:**")
+                    tokens = perf.get("tokens", {})
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.caption(f"• Input: `{tokens['total_input']:,}`")
+                        st.caption(f"• Output: `{tokens['total_output']:,}`")
+                    with col2:
+                        if tokens.get("summary_total"):
+                            st.caption(f"• Summary: `{tokens['summary_total']:,}`")
+                        if tokens.get("answer_total"):
+                            st.caption(f"• Answer: `{tokens['answer_total']:,}`")
 
             # Debug info
             if debug_req and data.get("debug"):

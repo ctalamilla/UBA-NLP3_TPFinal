@@ -4,13 +4,14 @@ import os
 import json
 import pickle
 import logging
+import time
 from typing import List, Dict, Any, Optional, Tuple
 
 from openai import OpenAI
 from tasks.bm25_index import BM25Index
 from .s3_boto import build_s3
 from .vector_pinecone_api import ensure_index, query_index
-
+from .performance import PerformanceTracker
 logger = logging.getLogger(__name__)
 
 # -----------------------
@@ -92,15 +93,16 @@ def rag_summary_llm(
     client: Optional[OpenAI],
     query: str,
     chunks: List[str],
-    max_chars: int = 500
-) -> str:
+    max_chars: int = 500,
+    tracker: Optional[PerformanceTracker] = None  # ← NUEVO parámetro
+) -> Tuple[str, Optional[Any]]:  # ← NUEVO tipo de retorno
     """Genera resumen del contexto usando LLM"""
     if not chunks:
-        return ""
+        return "", None  # ← CAMBIADO
     
     if not client:
         logger.debug("Sin OpenAI client - retornando contexto truncado")
-        return "\n\n".join(chunks)[:max_chars]
+        return "\n\n".join(chunks)[:max_chars], None  # ← CAMBIADO
     
     joined = "\n\n".join(f"- {c}" for c in chunks)[:4000]
     prompt = (
@@ -112,32 +114,43 @@ def rag_summary_llm(
     try:
         model = os.getenv("OPENAI_SUMMARY_MODEL", "gpt-4o-mini")
         logger.debug(f"Generando resumen con {model}")
+        
+        start_time = time.time()  # ← NUEVO
         out = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
+        elapsed = time.time() - start_time  # ← NUEVO
+        
         summary = (out.choices[0].message.content or "")[:max_chars].strip()
-        logger.info(f"✅ Resumen generado ({len(summary)} chars)")
-        return summary
+        logger.info(f"✅ Resumen generado ({len(summary)} chars, {elapsed:.2f}s)")  # ← MODIFICADO
+        
+        # Track metrics  # ← NUEVO BLOQUE
+        if tracker:
+            tracker.timings["llm_summary_time"] = elapsed
+            tracker.add_llm_metrics("summary", out.usage, model)
+        
+        return summary, out.usage  # ← CAMBIADO
     except Exception as e:
         logger.error(f"❌ Error generando resumen: {e}")
-        return "\n\n".join(chunks)[:max_chars]
+        return "\n\n".join(chunks)[:max_chars], None  # ← CAMBIADO
 
 def answer_llm(
     client: Optional[OpenAI],
     query: str,
     context_chunks: List[str],
     summary: str,
-    metadata_list: Optional[List[Dict[str, Any]]] = None
-) -> str:
+    metadata_list: Optional[List[Dict[str, Any]]] = None,
+    tracker: Optional[PerformanceTracker] = None  # ← NUEVO parámetro
+) -> Tuple[str, Optional[Any]]:  # ← NUEVO tipo de retorno
     """Genera respuesta final usando LLM con contexto enriquecido y metadatos estructurados"""
     if not context_chunks:
-        return "No hay contexto disponible."
+        return "No hay contexto disponible.", None  # ← CAMBIADO
     
     if not client:
         logger.debug("Sin OpenAI client - retornando respuesta por defecto")
-        return "No está especificado en las fuentes."
+        return "No está especificado en las fuentes.", None  # ← CAMBIADO
     
     ctx = "\n\n".join(context_chunks)[:6000]
     
@@ -153,8 +166,6 @@ def answer_llm(
                 meta_info.append(f"Fecha: {meta['fecha']}")
             if meta.get("op"):
                 meta_info.append(f"OP: {meta['op']}")
-            if meta.get("source"):
-                meta_info.append(f"PDF: {meta['source']}")
             
             if meta_info:
                 metadata_section += f"Fuente {i}: {' | '.join(meta_info)}\n"
@@ -173,33 +184,44 @@ def answer_llm(
     try:
         model = os.getenv("OPENAI_ANSWER_MODEL", "gpt-4o-mini")
         logger.debug(f"Generando respuesta con {model}")
+        
+        start_time = time.time()  # ← NUEVO
         out = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2
         )
+        elapsed = time.time() - start_time  # ← NUEVO
+        
         answer = (out.choices[0].message.content or "").strip()
-        logger.info(f"✅ Respuesta generada ({len(answer)} chars)")
-        return answer
+        logger.info(f"✅ Respuesta generada ({len(answer)} chars, {elapsed:.2f}s)")  # ← MODIFICADO
+        
+        # Track metrics  # ← NUEVO BLOQUE
+        if tracker:
+            tracker.timings["llm_answer_time"] = elapsed
+            tracker.add_llm_metrics("answer", out.usage, model)
+        
+        return answer, out.usage  # ← CAMBIADO
     except Exception as e:
         logger.error(f"❌ Error generando respuesta: {e}")
-        return "Error al generar la respuesta."
+        return "Error al generar la respuesta.", None  # ← CAMBIADO
 
 def verificar_respuesta_llm(
     client: Optional[OpenAI],
     query: str,
     respuesta: str,
-    context_chunks: List[str]
-) -> str:
+    context_chunks: List[str],
+    tracker: Optional[PerformanceTracker] = None  # ← NUEVO parámetro
+) -> Tuple[str, Optional[Any]]:  # ← NUEVO tipo de retorno
     """
     Verifica si la respuesta generada está respaldada por los documentos
     Retorna una evaluación con ✅ / ⚠️ / ❌
     """
     if not client:
-        return "⚠️ (verificador LLM no disponible)"
+        return "⚠️ (verificador LLM no disponible)", None  # ← CAMBIADO
     
     if not context_chunks or not respuesta:
-        return "⚠️ (sin contexto o respuesta para verificar)"
+        return "⚠️ (sin contexto o respuesta para verificar)", None  # ← CAMBIADO
     
     evidencias = "\n\n".join(context_chunks)[:4000]
     prompt = f"""Tu tarea es verificar si la respuesta está coherente y respaldada por los documentos recuperados.
@@ -225,17 +247,27 @@ Proporciona tu evaluación en este formato:
     try:
         model = os.getenv("OPENAI_OUT_GUARD_MODEL", "gpt-4o-mini")
         logger.debug(f"Verificando respuesta con {model}")
+        
+        start_time = time.time()  # ← NUEVO
         out = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
+        elapsed = time.time() - start_time  # ← NUEVO
+        
         verification = (out.choices[0].message.content or "⚠️").strip()
-        logger.info(f"✅ Verificación completada")
-        return verification
+        logger.info(f"✅ Verificación completada ({elapsed:.2f}s)")  # ← MODIFICADO
+        
+        # Track metrics  # ← NUEVO BLOQUE
+        if tracker:
+            tracker.timings["llm_verification_time"] = elapsed
+            tracker.add_llm_metrics("verification", out.usage, model)
+        
+        return verification, out.usage  # ← CAMBIADO
     except Exception as e:
         logger.error(f"❌ Error en verificación: {e}")
-        return "⚠️ (error en verificador)"
+        return "⚠️ (error en verificador)", None  # ← CAMBIADO
 
 # -----------------------
 # RRF combine
@@ -491,38 +523,45 @@ class RAGPipeline:
         
         logger.info(f"🚀 Ejecutando RAG para query: '{query[:100]}...'")
         logger.info(f"Params => k_bm25={k_bm25} k_vec={k_vec} k_final={k_final} per_page={per_page} rrf_k={rrf_k} rerank={do_rerank}")
-        
+        tracker = PerformanceTracker()
+        tracker.start()
         # 1. Búsqueda híbrida
         logger.info(f"🔍 BM25 top-{k_bm25}")
-        bm25_pages = self.bm25_best_pages(query, top_k=k_bm25)
+        with tracker.track("bm25_time"):
+            bm25_pages = self.bm25_best_pages(query, top_k=k_bm25)
         
         logger.info(f"🔍 Vector top-{k_vec}")
-        pc_pages = self.pinecone_best_pages(query, top_k=k_vec)
+        with tracker.track("vector_time"):
+            pc_pages = self.pinecone_best_pages(query, top_k=k_vec)
         
         # 2. Fusión RRF
-        if pc_pages:
-            logger.info("🔀 Aplicando RRF fusion")
-            fused_pages = rrf_combine(
-                bm25_pages,
-                pc_pages,
-                k=rrf_k,
-                top_k=max(k_final * 3, 20)
-            )
-        else:
-            logger.warning("⚠️ Pinecone vacío, usando solo BM25")
-            fused_pages = bm25_pages[:max(k_final * 3, 20)]
+        with tracker.track("fusion_time"):
+            if pc_pages:
+                logger.info("🔀 Aplicando RRF fusion")
+                fused_pages = rrf_combine(
+                    bm25_pages,
+                    pc_pages,
+                    k=rrf_k,
+                    top_k=max(k_final * 3, 20)
+                )
+            else:
+                logger.warning("⚠️ Pinecone vacío, usando solo BM25")
+                fused_pages = bm25_pages[:max(k_final * 3, 20)]
 
-        # 3. Construir candidatos
-        candidates = self.build_candidates_from_pages(query, fused_pages, per_page=per_page)
+         # 3. Construir candidatos
+        with tracker.track("candidates_time"):
+            candidates = self.build_candidates_from_pages(query, fused_pages, per_page=per_page)
         
         if not candidates:
             logger.warning("⚠️ No se encontraron candidatos")
+            performance = tracker.get_summary()
             return {
                 "query": query,
                 "answer": "No hay contexto disponible.",
                 "summary": "",
                 "verification": "⚠️ (sin candidatos para verificar)",
                 "results": [],
+                "performance": performance,
                 "debug": {
                     "bm25_pages": bm25_pages[:10],
                     "pinecone_pages": pc_pages[:10],
@@ -532,10 +571,11 @@ class RAGPipeline:
             }
 
         # 4. Rerank
-        if do_rerank:
-            ranked = optional_rerank(query, candidates)
-        else:
-            ranked = [(cid, txt, meta, 0.0) for (cid, txt, meta) in candidates]
+        with tracker.track("rerank_time"):
+            if do_rerank:
+                ranked = optional_rerank(query, candidates)
+            else:
+                ranked = [(cid, txt, meta, 0.0) for (cid, txt, meta) in candidates]
         
         final = ranked[:k_final]
         
@@ -574,14 +614,30 @@ class RAGPipeline:
 
         # 6. Generación LLM con metadatos estructurados
         logger.info("🤖 Generando respuesta con LLM")
-        summary = rag_summary_llm(self.oa, query, ctx_enriched, max_chars=500)
-        answer = answer_llm(self.oa, query, ctx_enriched, summary, metadata_list=metadata_list)
+        summary, summary_usage = rag_summary_llm(
+            self.oa, query, ctx_enriched, max_chars=500, tracker=tracker
+        )
+        answer, answer_usage = answer_llm(
+            self.oa, query, ctx_enriched, summary, 
+            metadata_list=metadata_list, tracker=tracker
+        )
         
         # 7. Verificación de respuesta
         logger.info("🔍 Verificando respuesta contra documentos")
-        verification = verificar_respuesta_llm(self.oa, query, answer, ctx_enriched)
-
-        # 8. Construir respuesta con metadata completo
+        verification, verification_usage = verificar_respuesta_llm(
+            self.oa, query, answer, ctx_enriched, tracker=tracker
+        )
+        
+        # 8. Obtener métricas de performance
+        performance = tracker.get_summary()
+        
+        # Log performance
+        logger.info(f"⏱️  Total time: {performance['total_time']:.3f}s")
+        logger.info(f"🎫 Total tokens: {performance['tokens']['total']:,}")
+        logger.info(f"💰 Total cost: ${performance['cost']['total_usd']:.6f}")
+        
+        
+        # 9. Construir respuesta con metadata completo
         payload = {
             "query": query,
             "summary": summary,
@@ -604,6 +660,7 @@ class RAGPipeline:
                 }
                 for (cid, txt, meta, score) in final
             ],
+            "performance": performance,  # ← NUEVO: métricas de performance
         }
         
         if debug:
