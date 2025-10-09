@@ -1,0 +1,791 @@
+[2025-10-09T00:00:20.665+0000] {processor.py:157} INFO - Started process (PID=70875) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:20.666+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:00:20.667+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:20.667+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:20.697+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:20.720+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:20.719+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:00:20.728+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:20.727+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:00:20.735+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.075 seconds
+[2025-10-09T00:00:50.933+0000] {processor.py:157} INFO - Started process (PID=70900) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:50.934+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:00:50.934+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:50.934+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:50.949+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:00:50.968+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:50.967+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:00:50.973+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:00:50.972+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:00:50.979+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.048 seconds
+[2025-10-09T00:01:21.287+0000] {processor.py:157} INFO - Started process (PID=70925) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:21.288+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:01:21.289+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:01:21.289+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:21.325+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:21.354+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:01:21.354+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:01:21.361+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:01:21.361+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:01:21.370+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.087 seconds
+[2025-10-09T00:01:51.583+0000] {processor.py:157} INFO - Started process (PID=70942) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:51.584+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:01:51.584+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:01:51.584+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:51.592+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:01:51.591+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 17, in <module>
+    from tasks.pinecone_upsert_task import task_pinecone_upsert
+ModuleNotFoundError: No module named 'tasks.pinecone_upsert_task'
+[2025-10-09T00:01:51.592+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:01:51.605+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.024 seconds
+[2025-10-09T00:02:21.843+0000] {processor.py:157} INFO - Started process (PID=70967) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:21.843+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:02:21.844+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:02:21.844+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:21.850+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:02:21.849+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 17, in <module>
+    from tasks.pinecone_upsert_task import task_pinecone_upsert
+ModuleNotFoundError: No module named 'tasks.pinecone_upsert_task'
+[2025-10-09T00:02:21.850+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:21.861+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:02:52.114+0000] {processor.py:157} INFO - Started process (PID=70992) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:52.114+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:02:52.115+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:02:52.115+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:52.121+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:02:52.120+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 17, in <module>
+    from tasks.pinecone_upsert_task import task_pinecone_upsert
+ModuleNotFoundError: No module named 'tasks.pinecone_upsert_task'
+[2025-10-09T00:02:52.121+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:02:52.132+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:03:22.415+0000] {processor.py:157} INFO - Started process (PID=71017) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:22.416+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:03:22.416+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:03:22.416+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:22.420+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:03:22.420+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:03:22.421+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:22.431+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.018 seconds
+[2025-10-09T00:03:52.741+0000] {processor.py:157} INFO - Started process (PID=71034) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:52.742+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:03:52.743+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:03:52.743+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:52.751+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:03:52.750+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:03:52.751+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:03:52.767+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.029 seconds
+[2025-10-09T00:04:23.053+0000] {processor.py:157} INFO - Started process (PID=71059) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:23.056+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:04:23.058+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:04:23.058+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:23.071+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:04:23.070+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:04:23.072+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:23.091+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.046 seconds
+[2025-10-09T00:04:53.316+0000] {processor.py:157} INFO - Started process (PID=71084) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:53.318+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:04:53.318+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:04:53.318+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:53.326+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:04:53.325+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:04:53.327+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:04:53.343+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.030 seconds
+[2025-10-09T00:05:23.611+0000] {processor.py:157} INFO - Started process (PID=71110) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:23.612+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:05:23.613+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:05:23.613+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:23.620+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:05:23.619+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:05:23.620+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:23.633+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.025 seconds
+[2025-10-09T00:05:53.834+0000] {processor.py:157} INFO - Started process (PID=71127) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:53.834+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:05:53.835+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:05:53.835+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:53.839+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:05:53.838+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:05:53.840+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:05:53.850+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:06:24.146+0000] {processor.py:157} INFO - Started process (PID=71152) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:24.148+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:06:24.149+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:06:24.149+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:24.158+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:06:24.157+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:06:24.159+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:24.172+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.030 seconds
+[2025-10-09T00:06:54.444+0000] {processor.py:157} INFO - Started process (PID=71177) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:54.445+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:06:54.445+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:06:54.445+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:54.450+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:06:54.450+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:06:54.451+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:06:54.461+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:07:24.746+0000] {processor.py:157} INFO - Started process (PID=71202) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:24.747+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:07:24.748+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:07:24.747+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:24.754+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:07:24.753+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:07:24.755+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:24.768+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.025 seconds
+[2025-10-09T00:07:55.034+0000] {processor.py:157} INFO - Started process (PID=71219) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:55.035+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:07:55.036+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:07:55.036+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:55.044+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:07:55.042+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:07:55.044+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:07:55.058+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.028 seconds
+[2025-10-09T00:08:25.363+0000] {processor.py:157} INFO - Started process (PID=71243) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:25.364+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:08:25.365+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:08:25.364+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:25.369+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:08:25.368+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:08:25.370+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:25.380+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.018 seconds
+[2025-10-09T00:08:55.691+0000] {processor.py:157} INFO - Started process (PID=71268) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:55.693+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:08:55.694+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:08:55.694+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:55.703+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:08:55.702+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:08:55.704+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:08:55.721+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.035 seconds
+[2025-10-09T00:09:25.997+0000] {processor.py:157} INFO - Started process (PID=71293) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:25.998+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:09:25.999+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:09:25.999+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:26.009+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:09:26.007+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:09:26.009+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:26.026+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.033 seconds
+[2025-10-09T00:09:56.279+0000] {processor.py:157} INFO - Started process (PID=71317) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:56.280+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:09:56.280+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:09:56.280+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:56.285+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:09:56.284+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:09:56.286+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:09:56.296+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:10:26.591+0000] {processor.py:157} INFO - Started process (PID=71335) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:26.592+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:10:26.593+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:10:26.593+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:26.600+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:10:26.599+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:10:26.600+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:26.614+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.026 seconds
+[2025-10-09T00:10:56.878+0000] {processor.py:157} INFO - Started process (PID=71360) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:56.879+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:10:56.880+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:10:56.879+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:56.884+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:10:56.884+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:10:56.885+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:10:56.894+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.018 seconds
+[2025-10-09T00:11:27.161+0000] {processor.py:157} INFO - Started process (PID=71385) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:27.162+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:11:27.162+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:11:27.162+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:27.167+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:11:27.166+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:11:27.167+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:27.178+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:11:57.428+0000] {processor.py:157} INFO - Started process (PID=71410) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:57.429+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:11:57.429+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:11:57.429+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:57.434+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:11:57.433+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:11:57.435+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:11:57.445+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:12:27.733+0000] {processor.py:157} INFO - Started process (PID=71427) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:27.734+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:12:27.735+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:12:27.734+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:27.741+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:12:27.740+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:12:27.742+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:27.757+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.028 seconds
+[2025-10-09T00:12:58.002+0000] {processor.py:157} INFO - Started process (PID=71452) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:58.003+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:12:58.004+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:12:58.003+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:58.009+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:12:58.008+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:12:58.010+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:12:58.021+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:13:28.289+0000] {processor.py:157} INFO - Started process (PID=71477) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:28.290+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:13:28.291+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:13:28.291+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:28.296+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:13:28.295+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:13:28.296+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:28.308+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:13:58.575+0000] {processor.py:157} INFO - Started process (PID=71502) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:58.576+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:13:58.577+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:13:58.577+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:58.584+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:13:58.583+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:13:58.584+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:13:58.598+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.026 seconds
+[2025-10-09T00:14:28.903+0000] {processor.py:157} INFO - Started process (PID=71519) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:28.905+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:14:28.906+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:14:28.905+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:28.913+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:14:28.912+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:14:28.913+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:28.927+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.027 seconds
+[2025-10-09T00:14:59.214+0000] {processor.py:157} INFO - Started process (PID=71544) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:59.216+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:14:59.217+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:14:59.216+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:59.225+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:14:59.224+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:14:59.225+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:14:59.241+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.030 seconds
+[2025-10-09T00:15:29.579+0000] {processor.py:157} INFO - Started process (PID=71569) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:29.580+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:15:29.581+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:15:29.581+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:29.590+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:15:29.588+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:15:29.591+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:29.605+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.030 seconds
+[2025-10-09T00:15:59.832+0000] {processor.py:157} INFO - Started process (PID=71594) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:59.833+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:15:59.833+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:15:59.833+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:59.839+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:15:59.838+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:15:59.839+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:15:59.851+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.020 seconds
+[2025-10-09T00:16:30.095+0000] {processor.py:157} INFO - Started process (PID=71611) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:16:30.096+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:16:30.097+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:16:30.097+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:16:30.102+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:16:30.101+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:16:30.102+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:16:30.114+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.022 seconds
+[2025-10-09T00:17:00.357+0000] {processor.py:157} INFO - Started process (PID=71636) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:00.358+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:17:00.359+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:17:00.358+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:00.363+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:17:00.362+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:17:00.364+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:00.374+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.018 seconds
+[2025-10-09T00:17:30.597+0000] {processor.py:157} INFO - Started process (PID=71661) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:30.598+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:17:30.599+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:17:30.599+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:30.604+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:17:30.603+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:17:30.604+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:17:30.615+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:18:00.861+0000] {processor.py:157} INFO - Started process (PID=71686) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:00.862+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:18:00.863+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:18:00.863+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:00.869+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:18:00.869+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:18:00.870+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:00.884+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.025 seconds
+[2025-10-09T00:18:31.147+0000] {processor.py:157} INFO - Started process (PID=71703) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:31.148+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:18:31.149+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:18:31.148+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:31.154+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:18:31.153+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:18:31.154+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:18:31.165+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.021 seconds
+[2025-10-09T00:19:01.420+0000] {processor.py:157} INFO - Started process (PID=71728) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:01.421+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:19:01.421+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:01.421+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:01.426+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:01.425+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:19:01.427+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:01.438+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.020 seconds
+[2025-10-09T00:19:31.672+0000] {processor.py:157} INFO - Started process (PID=71753) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:31.673+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:19:31.673+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:31.673+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:31.678+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:31.677+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 10, in <module>
+    from tasks.chunk_from_txt_task import task_chunk_txt
+ModuleNotFoundError: No module named 'tasks.chunk_from_txt_task'
+[2025-10-09T00:19:31.678+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:31.689+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.019 seconds
+[2025-10-09T00:19:40.870+0000] {processor.py:157} INFO - Started process (PID=71762) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:40.871+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:19:40.875+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:40.872+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:40.905+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:19:40.903+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 17, in <module>
+    from tasks.pinecone_upsert_task import task_pinecone_upsert
+ModuleNotFoundError: No module named 'tasks.pinecone_upsert_task'
+[2025-10-09T00:19:40.906+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:19:40.937+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.072 seconds
+[2025-10-09T00:20:01.104+0000] {processor.py:157} INFO - Started process (PID=71779) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:01.105+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:20:01.105+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:01.105+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:01.116+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:01.115+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 24, in <module>
+    from tasks.classify_chunks_agent_task import task_classify_chunks_agent
+ModuleNotFoundError: No module named 'tasks.classify_chunks_agent_task'
+[2025-10-09T00:20:01.117+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:01.131+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.030 seconds
+[2025-10-09T00:20:26.371+0000] {processor.py:157} INFO - Started process (PID=71796) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:26.373+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:20:26.373+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:26.373+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:26.400+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:26.461+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:26.461+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:flujo_RAG_completo' as access control is unset.
+[2025-10-09T00:20:26.461+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:26.461+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:20:26.466+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:26.466+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:20:26.477+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.109 seconds
+[2025-10-09T00:20:56.626+0000] {processor.py:157} INFO - Started process (PID=71821) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:56.628+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:20:56.630+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:56.629+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:56.654+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:20:56.676+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:56.675+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:20:56.682+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:20:56.682+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:20:56.690+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.069 seconds
+[2025-10-09T00:21:26.999+0000] {processor.py:157} INFO - Started process (PID=71838) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:27.004+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:21:27.004+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:27.004+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:27.018+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:27.039+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:27.039+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:21:27.046+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:27.046+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:21:27.056+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.061 seconds
+[2025-10-09T00:21:57.282+0000] {processor.py:157} INFO - Started process (PID=71863) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:57.282+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:21:57.283+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:57.283+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:57.298+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:21:57.317+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:57.317+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:21:57.323+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:21:57.323+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:21:57.330+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.050 seconds
+[2025-10-09T00:22:27.554+0000] {processor.py:157} INFO - Started process (PID=71888) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:27.555+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:22:27.556+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:27.556+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:27.575+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:27.596+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:27.596+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:22:27.604+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:27.604+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:22:27.612+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.060 seconds
+[2025-10-09T00:22:57.842+0000] {processor.py:157} INFO - Started process (PID=71913) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:57.844+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:22:57.844+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:57.844+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:57.859+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:22:57.877+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:57.877+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:22:57.883+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:22:57.882+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:22:57.889+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.049 seconds
+[2025-10-09T00:25:10.416+0000] {processor.py:157} INFO - Started process (PID=173) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:10.418+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:25:10.419+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:25:10.419+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:10.425+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:25:10.423+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:25:10.425+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:10.435+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.022 seconds
+[2025-10-09T00:25:40.657+0000] {processor.py:157} INFO - Started process (PID=198) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:40.658+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:25:40.660+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:25:40.660+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:40.668+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:25:40.667+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:25:40.668+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:25:40.682+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.027 seconds
+[2025-10-09T00:26:10.924+0000] {processor.py:157} INFO - Started process (PID=223) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:10.925+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:26:10.925+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:26:10.925+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:10.930+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:26:10.929+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:26:10.930+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:10.942+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.020 seconds
+[2025-10-09T00:26:41.217+0000] {processor.py:157} INFO - Started process (PID=240) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:41.217+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:26:41.218+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:26:41.218+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:41.224+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:26:41.223+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:26:41.224+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:26:41.236+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.022 seconds
+[2025-10-09T00:27:11.530+0000] {processor.py:157} INFO - Started process (PID=265) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:11.531+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:27:11.532+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:11.532+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:11.540+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:11.538+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:27:11.540+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:11.553+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.026 seconds
+[2025-10-09T00:27:41.818+0000] {processor.py:157} INFO - Started process (PID=290) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:41.820+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:27:41.820+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:41.820+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:41.829+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:41.828+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/Ingestion_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Ingestion_pipeline.py", line 18, in <module>
+    from tasks.pinecone_query_task import task_pinecone_query
+  File "/opt/airflow/plugins/tasks/pinecone_query_task.py", line 3, in <module>
+    from tasks.vector_pinecone import query_index
+ModuleNotFoundError: No module named 'tasks.vector_pinecone'
+[2025-10-09T00:27:41.830+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:41.843+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.029 seconds
+[2025-10-09T00:27:45.866+0000] {processor.py:157} INFO - Started process (PID=291) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:45.867+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:27:45.868+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:45.867+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:46.037+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:27:46.192+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:46.191+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:flujo_RAG_completo' as access control is unset.
+[2025-10-09T00:27:46.192+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:46.192+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:27:46.205+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:27:46.205+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:27:46.225+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.361 seconds
+[2025-10-09T00:28:16.495+0000] {processor.py:157} INFO - Started process (PID=316) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:16.496+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:28:16.497+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:16.497+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:16.523+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:16.544+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:16.544+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:28:16.552+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:16.552+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:28:16.566+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.075 seconds
+[2025-10-09T00:28:46.657+0000] {processor.py:157} INFO - Started process (PID=342) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:46.658+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:28:46.659+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:46.659+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:46.683+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:28:46.710+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:46.710+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:28:46.723+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:28:46.723+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:28:46.735+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.082 seconds
+[2025-10-09T00:29:16.920+0000] {processor.py:157} INFO - Started process (PID=367) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:16.922+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:29:16.923+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:16.923+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:16.944+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:16.966+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:16.966+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:29:16.974+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:16.974+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:29:16.982+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.065 seconds
+[2025-10-09T00:29:47.195+0000] {processor.py:157} INFO - Started process (PID=384) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:47.196+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:29:47.197+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:47.196+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:47.219+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:29:47.251+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:47.251+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:29:47.261+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:29:47.261+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:29:47.275+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.083 seconds
+[2025-10-09T00:30:17.566+0000] {processor.py:157} INFO - Started process (PID=410) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:17.568+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:30:17.568+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:17.568+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:17.593+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:17.615+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:17.615+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:30:17.620+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:17.620+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:30:17.627+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.064 seconds
+[2025-10-09T00:30:47.860+0000] {processor.py:157} INFO - Started process (PID=436) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:47.861+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:30:47.861+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:47.861+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:47.882+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:30:47.903+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:47.903+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:30:47.910+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:30:47.910+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:30:47.919+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.062 seconds
+[2025-10-09T00:31:18.244+0000] {processor.py:157} INFO - Started process (PID=462) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:18.246+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:31:18.246+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:18.246+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:18.263+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:18.286+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:18.285+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:31:18.293+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:18.293+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:31:18.301+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.060 seconds
+[2025-10-09T00:31:48.644+0000] {processor.py:157} INFO - Started process (PID=480) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:48.646+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:31:48.647+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:48.646+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:48.670+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:31:48.690+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:48.690+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:31:48.696+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:31:48.696+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:31:48.703+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.062 seconds
+[2025-10-09T00:32:18.982+0000] {processor.py:157} INFO - Started process (PID=506) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:18.984+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:32:18.985+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:18.985+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:19.008+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:19.028+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:19.028+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:32:19.033+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:19.033+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:32:19.040+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.062 seconds
+[2025-10-09T00:32:49.303+0000] {processor.py:157} INFO - Started process (PID=532) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:49.305+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:32:49.306+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:49.305+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:49.328+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:32:49.346+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:49.346+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:32:49.351+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:32:49.351+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:32:49.358+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.058 seconds
+[2025-10-09T00:33:19.584+0000] {processor.py:157} INFO - Started process (PID=558) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:19.586+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:33:19.587+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:19.586+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:19.610+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:19.630+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:19.630+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:33:19.635+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:19.635+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:33:19.641+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.061 seconds
+[2025-10-09T00:33:49.884+0000] {processor.py:157} INFO - Started process (PID=584) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:49.885+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:33:49.886+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:49.886+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:49.904+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:33:49.925+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:49.925+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:33:49.932+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:33:49.932+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:33:49.939+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.057 seconds
+[2025-10-09T00:34:20.260+0000] {processor.py:157} INFO - Started process (PID=602) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:34:20.262+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T00:34:20.264+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:34:20.263+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:34:20.293+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T00:34:20.314+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:34:20.314+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T00:34:20.322+0000] {logging_mixin.py:151} INFO - [2025-10-09T00:34:20.322+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T00:34:20.330+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.075 seconds
