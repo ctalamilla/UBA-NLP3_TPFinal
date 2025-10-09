@@ -17,6 +17,90 @@ Stack completo con orquestación en Airflow, almacenamiento en MinIO (S3), API e
 - [Troubleshooting](#-troubleshooting)
 
 ---
+## 📖 Introducción
+
+Este proyecto implementa un sistema RAG (Retrieval-Augmented Generation) de producción para consultar el Boletín Oficial de la provincia de Salta, Argentina. El sistema permite realizar búsquedas semánticas sobre ordenanzas provinciales (OPs) y obtener respuestas contextualizadas generadas por LLMs.
+
+### Características Principales
+
+- **Recuperación Híbrida**: Combina BM25 (búsqueda léxica) + embeddings vectoriales (búsqueda semántica) mediante Reciprocal Rank Fusion (RRF)
+- **Clasificación Automática**: Agente LLM que clasifica y extrae metadatos de cada OP
+- **Chunking Inteligente**: Segmentación orientada a OPs para preservar contexto legal
+- **Verificación de Respuestas**: Guardrails de entrada/salida para prevenir alucinaciones
+- **Métricas de Calidad**: Evaluación automática con AP@k, nDCG@k, Recall@k y MRR
+- **Pipeline Batch**: Procesamiento por lotes orquestado con Airflow
+- **Inference API**: FastAPI con latencias <5s y costos monitoreados
+
+### Inspiración y Metodología
+
+Este proyecto sigue las mejores prácticas del libro **"LLM Engineer's Handbook: Master the art of engineering large language models from concept to production"** de Paul Iusztin, Maxime Labonne y Julien Chaumond (Packt Publishing).
+
+<div align="center">
+  <img src="figures/fig3.jpg" alt="LLM Engineer's Handbook" width="300"/>
+</div>
+
+El diseño del pipeline se basa en el patrón **Batch RAG Feature Pipeline** descrito en el libro, adaptado al caso específico de documentos legales estructurados:
+
+<div align="center">
+  <img src="figures/fig2.png" alt="Batch RAG Feature Pipeline" width="700"/>
+  <p><em>Figura: Pipeline RAG genérico (fuente: LLM Engineer's Handbook)</em></p>
+</div>
+
+**Adaptaciones clave al dominio legal:**
+- **Raw Docs → PDFs del Boletín Oficial** (fuente única, formato consistente)
+- **Clean → Extracción y split por OP** (cada ordenanza provincial es una unidad lógica)
+- **Metadata Enrichment → Clasificación con LLM** (categoría, fechas, extractos relevantes)
+- **Chunk → Segmentación contextual** (mantiene coherencia dentro de cada OP)
+- **Embed → Vectorización con MiniLM** (modelo multilingüe optimizado para español)
+- **Dual Indexing → BM25 + Pinecone** (recuperación híbrida para máxima cobertura)
+
+---
+
+## 🔄 Pipeline de Ingesta
+
+El flujo completo de datos desde el PDF original hasta los índices de recuperación:
+
+<div align="center">
+  <img src="figures/fig1.png" alt="Pipeline de Ingesta - Boletín Oficial" width="900"/>
+  <p><em>Figura: Arquitectura del pipeline de procesamiento e indexación</em></p>
+</div>
+
+### Etapas del Pipeline
+
+1. **Extracción por OP** 📄
+   - Input: PDF del Boletín Oficial (ej: `22044_2025-10-02.pdf`)
+   - Output: TXT individuales por OP + metadata JSON
+   - Storage: `s3://respaldo2/rag/text_op/` y `text_op_meta/`
+
+2. **Clasificación Automática** 🧠
+   - Agent LLM analiza cada OP y extrae:
+     - Categoría (edictos, licitaciones, resoluciones, etc.)
+     - Entidades mencionadas (personas, empresas, expedientes)
+     - Fechas relevantes
+     - Resumen ejecutivo
+   - Output: JSON enriquecido con clasificación
+   - Storage: Mismo path que metadata, campo `classification`
+
+3. **Chunking Contextual** ✂️
+   - Segmentación respetando límites de OP
+   - Cada chunk mantiene metadata del boletín y OP origen
+   - Output: NDJSON con formato:
+```json
+ {"chunk_id": "22044::OP100128767::1", "text": "...", "metadata": {...}}
+```
+   - Storage: `s3://respaldo2/rag/chunks_op/2025/`
+4. **Indexación Dual** 🔍
+   - **BM25**: Índice léxico para búsqueda por términos exactos
+     - Storage: `s3://respaldo2/rag/models/2025/bm25.pkl`
+   - **Pinecone**: Base vectorial para búsqueda semántica
+     - Index: `boletines-2025` (dimensión: 384, MiniLM)
+     - Namespace: `2025`
+
+5. **Evaluación (Opcional)** 📊
+   - Métricas de ranking contra ground truth (qrels.csv)
+   - Reportes en `s3://respaldo2/rag/metrics/`
+
+---
 
 ## 🏗 Arquitectura
 
