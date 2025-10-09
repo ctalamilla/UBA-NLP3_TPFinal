@@ -131,38 +131,78 @@ El sistema se compone de **15 servicios** en Docker Compose:
 
 ## 📁 Estructura del Proyecto
 
-```
+```text
 .
 ├─ dags/
-│  └─ Ingestion_pipeline.py        # DAG principal: extracción → chunking → indexación → evaluación
-│
-├─ fastapi_app/                    # 🔹 API RAG
-│  ├─ main.py                      # Endpoints: /health, /query, /ask, /vector/query, /eval/*
-│  ├─ pipeline.py                  # Pipeline híbrido: BM25 + Pinecone + RRF + LLM
-│  ├─ s3_boto.py                   # Cliente S3/MinIO
-│  └─ vector_pinecone_api.py       # Wrapper de Pinecone
-│
-├─ frontend_streamlit/             # 🔹 UI
-│  └─ streamlit_app.py             # Interfaz para consultas en lenguaje natural
-│
-├─ rag_notebook/                   # 🔹 Jupyter para experimentación
-│  └─ Dockerfile
-│
-├─ plugins/tasks/                  # 🔹 Librería de tareas (usada por Airflow y API)
-│  ├─ bm25_*.py                    # Construcción, consulta, dump de índice BM25
-│  ├─ chunk_*.py                   # Chunking de documentos (OP-first y legacy)
-│  ├─ pinecone_*.py                # Upsert y consultas vectoriales
-│  ├─ fusion*.py                   # RRF (Reciprocal Rank Fusion)
-│  ├─ eval_*.py                    # Evaluación: AP@k, nDCG@k, Recall@k, MRR
-│  ├─ extract_*.py                 # Extracción de texto desde PDFs
-│  └─ ...                          # + 20 módulos auxiliares
-│
+│  └─ Ingestion_pipeline.py        # DAG de Airflow que orquesta el flujo ETL/RAG completo.
+│                                  # Llama a tasks/* (extract > chunk > index > eval).
+├─ datalake/                        # Carpeta local (opcional) para staging; en prod se usa S3/MinIO.
+├─ docker-compose.yaml              # Levanta Airflow, FastAPI, Streamlit, MinIO, etc.
+├─ Dockerfile                       # Imagen base (raíz) – útil para notebooks o jobs sueltos.
+
+├─ fastapi_app/
+│  ├─ Dockerfile                    # Imagen del microservicio de consulta.
+│  ├─ main.py                       # Endpoints (/health, /ask, /query, /vector/query, /eval/*).
+│  ├─ performance.py                # Endpoints/útiles para medir latencias y throughput.
+│  ├─ pipeline.py                   # Pipeline RAG híbrido (BM25 + Pinecone + RRF + LLM).
+│  ├─ requirements.txt
+│  ├─ s3_boto.py                    # Cliente S3/MinIO para leer bm25.pkl y NDJSON de chunks.
+│  └─ vector_pinecone_api.py        # Helper de Pinecone (ensure_index, query con embeddings).
+
+├─ frontend_streamlit/
+│  ├─ Dockerfile
+│  ├─ requirements.txt
+│  └─ streamlit_app.py              # UI simple para probar RAG (muestra chunk_id/source/score/…).
+
+├─ mlflow/
+│  └─ artifacts/                    # Artefactos de experimentos (si usás MLflow localmente).
+├─ mlruns/                           # Metadatos de MLflow (experimentos, runs).
+
 ├─ notebooks/
-│  └─ pipeline_rag.ipynb           # Prototipado y pruebas locales
-│
-├─ docker-compose.yaml             # ✅ Definición completa de servicios
-├─ .env                            # ⚠️ Variables de entorno (no commiteado)
-└─ README.md
+│  └─ pipeline_rag.ipynb            # Notebook de prototipado: chunking, fusión RRF, pruebas locales.
+
+├─ plugins/
+│  ├─ __init__.py
+│  └─ tasks/                        # “Librería de tareas” usada por Airflow y scripts.
+│     ├─ agent_classifier.py        # Clasificador LLM/heurístico por OP (categoría, extraídos).
+│     ├─ agente_verificador.py      # Verificaciones/guardrails con LLM (si aplica).
+│     ├─ bm25_build_task.py         # Construye índice BM25 (bm25.pkl) desde NDJSON.
+│     ├─ bm25_dump_docids_task.py   # Exporta mapping de doc_ids (debug/diagnóstico).
+│     ├─ bm25_index.py              # Implementación BM25Index (search, doc_ids, persistencia).
+│     ├─ bm25_query_task.py         # Consulta de prueba contra el BM25.
+│     ├─ chunk_from_txt_task_op.py  # Chunker “OP-first”: agrupa por boletín/op y emite NDJSON.
+│     ├─ chunk_from_txt_task.py     # Chunker “plain”: un NDJSON por PDF base (modo legacy).
+│     ├─ classify_chunks_agent_task.py # Clasifica chunks ya generados (etiquetas).
+│     ├─ classify_op_texts_task.py  # Extrae + clasifica cada OP desde TXT crudo.
+│     ├─ documents.py               # Clase Document + chunk_text (lógica de segmentación).
+│     ├─ eval_bm25_task.py          # Métricas sobre BM25 (recall@k, mrr, etc.).
+│     ├─ eval_fusion_task.py        # Eval de fusión RRF (AP@k, nDCG@k, Recall@k, MRR).
+│     ├─ extract_texts_by_op_task.py# Crea text_op/ y text_op_meta/ desde PDFs o fuentes.
+│     ├─ fusion_rrf_task.py         # Ejecuta RRF (BM25 + vector) y guarda resultados en rag/fusion/.
+│     ├─ fusion.py                  # Implementación pura de RRF (función rrf_combine).
+│     ├─ guardrail_task.py          # Detección de prompt-injection/ruido en chunks.
+│     ├─ io_utils.py                # Utilidades de IO locales.
+│     ├─ loader_pdfs.py             # PDF→Document (limpieza, normalización, dehyphen, etc.).
+│     ├─ make_qrels_task.py         # Construye qrels.csv (ground truth) para evaluación.
+│     ├─ metrics.py                 # Métricas de ranking (AP, nDCG, Recall, MRR…).
+│     ├─ pinecone_query_task.py     # Consulta vectorial de prueba (top_k) desde Airflow/script.
+│     ├─ pinecone_upsert_op_task.py # Upsert a Pinecone desde NDJSON “OP-first” (con metadatos extra).
+│     ├─ pinecone_upsert_task.py    # Upsert a Pinecone desde NDJSON legacy.
+│     ├─ procesamiento_utils.py     # Limpieza, normalización, helpers de texto.
+│     ├─ qrels_utils.py             # Lectura/parseo de qrels.
+│     ├─ s3_utilities.py            # Listar/leer/subir a S3 (read_text, upload_json, list_keys…).
+│     ├─ s3_utils.py                # Compat/atajos S3 (antiguo).
+│     ├─ text_task.py               # Tareas misceláneas de texto.
+│     ├─ utils_op_split.py          # Split de documentos en OPs (nombres, patrones).
+│     ├─ vector_pinecone_op.py      # Cliente Pinecone orientado a OP (IDs, namespaces).
+│     └─ vector_pinecone.py         # Cliente Pinecone genérico (ensure_index, upsert, query).
+
+├─ rag_notebook/
+│  ├─ Dockerfile
+│  └─ requirements.txt              # Entorno liviano para reproducir el notebook.
+
+└─ README.md                        # Cómo correr, variables de entorno, flujo E2E.
+
 ```
 
 ---

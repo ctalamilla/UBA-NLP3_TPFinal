@@ -10491,3 +10491,101 @@ ModuleNotFoundError: No module named 'tasks.vector_pinecone'
 [2025-10-09T12:35:54.179+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:35:54.179+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-10-09T12:35:54.185+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:35:54.185+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
 [2025-10-09T12:35:54.193+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.060 seconds
+[2025-10-09T12:36:24.492+0000] {processor.py:157} INFO - Started process (PID=34084) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:24.496+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:36:24.497+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:24.497+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:24.567+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:24.595+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:24.595+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:36:24.601+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:24.601+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:36:24.610+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.122 seconds
+[2025-10-09T12:36:54.941+0000] {processor.py:157} INFO - Started process (PID=34110) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:54.944+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:36:54.944+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:54.944+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:54.963+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:36:54.980+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:54.980+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:36:54.985+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:36:54.985+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:36:54.993+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.055 seconds
+[2025-10-09T12:37:25.282+0000] {processor.py:157} INFO - Started process (PID=34136) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:25.286+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:37:25.286+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:25.286+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:25.305+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:25.322+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:25.322+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:37:25.327+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:25.327+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:37:25.334+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.055 seconds
+[2025-10-09T12:37:55.645+0000] {processor.py:157} INFO - Started process (PID=34154) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:55.648+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:37:55.649+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:55.648+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:55.666+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:37:55.685+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:55.685+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:37:55.691+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:37:55.691+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:37:55.700+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.057 seconds
+[2025-10-09T12:38:25.976+0000] {processor.py:157} INFO - Started process (PID=34181) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:25.979+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:38:25.980+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:25.980+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:26.003+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:26.023+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:26.023+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:38:26.031+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:26.031+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:38:26.039+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.066 seconds
+[2025-10-09T12:38:56.317+0000] {processor.py:157} INFO - Started process (PID=34207) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:56.320+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:38:56.321+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:56.321+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:56.337+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:38:56.354+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:56.354+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:38:56.361+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:38:56.361+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:38:56.368+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.054 seconds
+[2025-10-09T12:39:26.617+0000] {processor.py:157} INFO - Started process (PID=34233) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:26.619+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:39:26.619+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:26.619+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:26.633+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:26.652+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:26.652+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:39:26.659+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:26.659+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:39:26.667+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.052 seconds
+[2025-10-09T12:39:56.963+0000] {processor.py:157} INFO - Started process (PID=34251) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:56.965+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:39:56.965+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:56.965+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:56.984+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:39:57.004+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:57.004+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:39:57.012+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:39:57.011+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:39:57.020+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.061 seconds
+[2025-10-09T12:40:27.304+0000] {processor.py:157} INFO - Started process (PID=34277) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:27.306+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:40:27.306+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:27.306+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:27.321+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:27.339+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:27.338+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:40:27.344+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:27.344+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:40:27.352+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.051 seconds
+[2025-10-09T12:40:57.621+0000] {processor.py:157} INFO - Started process (PID=34303) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:57.624+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:40:57.625+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:57.625+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:57.642+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:40:57.661+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:57.661+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:40:57.668+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:40:57.668+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:40:57.676+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.058 seconds
+[2025-10-09T12:41:27.922+0000] {processor.py:157} INFO - Started process (PID=34329) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:27.924+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:41:27.924+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:27.924+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:27.938+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:27.959+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:27.959+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:41:27.966+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:27.966+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:41:27.975+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.055 seconds
+[2025-10-09T12:41:58.203+0000] {processor.py:157} INFO - Started process (PID=34347) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:58.206+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:41:58.206+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:58.206+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:58.229+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:41:58.250+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:58.250+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:41:58.259+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:41:58.259+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:41:58.268+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.067 seconds
+[2025-10-09T12:42:28.538+0000] {processor.py:157} INFO - Started process (PID=34373) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:28.541+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:42:28.541+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:28.541+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:28.561+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:28.582+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:28.582+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:42:28.589+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:28.589+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:42:28.599+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.063 seconds
+[2025-10-09T12:42:58.869+0000] {processor.py:157} INFO - Started process (PID=34400) to work on /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:58.872+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Ingestion_pipeline.py for tasks to queue
+[2025-10-09T12:42:58.873+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:58.873+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:58.891+0000] {processor.py:839} INFO - DAG(s) dict_keys(['flujo_RAG_completo']) retrieved from /opt/airflow/dags/Ingestion_pipeline.py
+[2025-10-09T12:42:58.909+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:58.909+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-10-09T12:42:58.915+0000] {logging_mixin.py:151} INFO - [2025-10-09T12:42:58.914+0000] {dag.py:3696} INFO - Setting next_dagrun for flujo_RAG_completo to None, run_after=None
+[2025-10-09T12:42:58.922+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Ingestion_pipeline.py took 0.055 seconds
