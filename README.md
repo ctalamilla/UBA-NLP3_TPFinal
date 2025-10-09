@@ -2,6 +2,8 @@
 
 Sistema RAG híbrido (BM25 + Pinecone + LLM) para consultar el Boletín Oficial de Salta.  
 Stack completo con orquestación en Airflow, almacenamiento en MinIO (S3), API en FastAPI y frontend en Streamlit.
+A continuación un video explicativo.
+[![Ver video](figures/image.png)](https://drive.google.com/file/d/1Wss4I4zJwlMydGc2-BnwthNEwQ-NOZz9/view?usp=drive_link)
 
 ---
 
