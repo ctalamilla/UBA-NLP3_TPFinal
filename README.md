@@ -36,7 +36,7 @@ Este proyecto implementa un sistema RAG (Retrieval-Augmented Generation) de prod
 Este proyecto sigue las mejores prácticas del libro **"LLM Engineer's Handbook: Master the art of engineering large language models from concept to production"** de Paul Iusztin, Maxime Labonne y Julien Chaumond (Packt Publishing).
 
 <div align="center">
-  <img src="figures/fig3.jpg" alt="LLM Engineer's Handbook" width="300"/>
+  <img src="figures/fig3.jpeg" alt="LLM Engineer's Handbook" width="300"/>
 </div>
 
 El diseño del pipeline se basa en el patrón **Batch RAG Feature Pipeline** descrito en el libro, adaptado al caso específico de documentos legales estructurados:
